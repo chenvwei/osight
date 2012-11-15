@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<icon>
+		<small-icon>/images/small.gif</small-icon><!-- 16*16 -->
+		<large-icon>/images/large.jpg</large-icon><!-- 32*32 -->
+	</icon>
+	<!-- display-name元素提供GUI工具可能会用来标记这个特定的Web应用的一个名称 -->
+	<display-name>Osight</display-name>
+	<!-- description元素给出与此有关的说明性文本 -->
+	<description>云游四方的个人网站</description>
+	
+	<context-param>
+	<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+	<param-value>/WEB-INF/tiles-defs.xml</param-value>
+	</context-param>
+	
+	<listener>
+       <listener-class>
+           org.apache.struts2.tiles.StrutsTilesListener
+       </listener-class>
+    </listener>
+
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
