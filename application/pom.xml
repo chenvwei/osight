@@ -7,10 +7,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>	
 	<groupId>com.osight</groupId>
-	<artifactId>osight-web</artifactId>
+	<artifactId>osight.ear</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>rodneytt osight's war</name>
+	<packaging>ear</packaging>
+	<name>rodneytt osight's ear</name>
 	
 	<dependencies>
 		<dependency>
@@ -19,44 +19,77 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
+			<groupId>com.osight</groupId>
+			<artifactId>osight-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
 			<artifactId>struts2-tiles-plugin</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts.xwork</groupId>
 			<artifactId>xwork-core</artifactId>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+					<jboss>
+						<version>4</version>
+						<unauthenticated-principal>
+							guest
+						</unauthenticated-principal>
+						<loader-repository>
+							my.package:loader=osight-ear-${pom.version}.ear
+						</loader-repository>
+						<jmx-name>
+							my.package:module=osight-ear-${pom.version}.ear
+						</jmx-name>
+					</jboss>
+					<modules>
+						<webModule>
+							<groupId>com.osight</groupId>
+							<artifactId>osight-web</artifactId>
+							<contextRoot>/</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
