@@ -1,6 +1,6 @@
 package com.osight.web.action;
 
-import com.osight.struts2.BasicSupportAction;
+import com.osight.framework.struts2.BasicSupportAction;
 
 public class HomeAction extends BasicSupportAction {
 	

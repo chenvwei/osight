@@ -1,4 +1,4 @@
-package com.osight.struts2;
+package com.osight.framework.struts2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
