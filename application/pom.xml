@@ -29,10 +29,6 @@
 			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-core</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
 		</dependency>
@@ -43,18 +39,6 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-tiles-plugin</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.struts.xwork</groupId>
-			<artifactId>xwork-core</artifactId>
 		</dependency>
 	</dependencies>
 	<build>
@@ -69,18 +53,6 @@
 							<addClasspath>true</addClasspath>
 						</manifest>
 					</archive>
-					<jboss>
-						<version>4</version>
-						<unauthenticated-principal>
-							guest
-						</unauthenticated-principal>
-						<loader-repository>
-							my.package:loader=osight-ear-${pom.version}.ear
-						</loader-repository>
-						<jmx-name>
-							my.package:module=osight-ear-${pom.version}.ear
-						</jmx-name>
-					</jboss>
 					<modules>
 						<webModule>
 							<groupId>com.osight</groupId>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:jdbc/osight</value>
+        </property>
+    </bean>
+    <!-- Hibernate SessionFactory for Oralce -->
+    <!-- Choose the dialect that matches your "dataSource" definition -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource">
+            <ref local="dataSource" />
+        </property>
+        <property name="configLocation">
+            <value>hibernate-cfg.xml</value>
+        </property>
+        <property name="configurationClass">
+            <value>org.hibernate.cfg.AnnotationConfiguration</value>
+        </property>
+        <property name="entityInterceptor">
+            <bean class="com.osight.framework.hibernate.AuditInterceptor" />
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</prop>
+                <prop key="hibernate.jdbc.batch_size">0</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.use_outer_join">false</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="daoInvocationHander" class="java.lang.String">
+        <constructor-arg>
+            <value>com.chsi.framework.hibernate.HibernateDAOInvocationHandler</value>
+        </constructor-arg>
+    </bean>
+    <bean id="dbProvider" class="com.chsi.framework.service.HibernateDbProvider">
+        <property name="daoInvocationHander">
+            <ref local="daoInvocationHander" />
+        </property>
+    </bean>
+
+    
+    <!-- dao -->
+	<bean id="parentDAO" abstract="true">
+		<property name="sessionFactory"><ref local="sessionFactory" /></property>
+	</bean>    
+	<bean id="parentDAOHasCache" abstract="true" parent="parentDAO">
+		<property name="cacheClient"><ref local="cacheClient" /></property>
+	</bean>
+	 
+    <bean id="schoolSearchDAOTarget" class="com.chsi.zsxx.yxxx.dao.hibernate.SchoolSearchDAOImpl" parent="parentDAO" />
+    <bean id="forumSearchDAOTarget" class="com.chsi.zxdy.dao.hibernate.ForumSearchDAOImpl" parent="parentDAO" />
+    <bean id="pubUserDAO" class="com.chsi.zsxx.user.dao.hibernate.PubUserDAOImpl" parent="parentDAO" />
+    <bean id="baoKaoDAOTarget" class="com.chsi.zsxx.yxxx.dao.hibernate.BaoKaoDAOImpl" parent="parentDAO" />
+    <bean id="countryDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.CountryManagerImpl" parent="parentDAO" />
+    <bean id="trainDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.TrainDAOImpl" parent="parentDAO" />
+    <bean id="fileDAO" class="com.chsi.zsxx.file.dao.hibernate.FileDAOImpl" parent="parentDAO" />
+    <bean id="contactDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.ContactDAOImpl" parent="parentDAO" />
+    <bean id="systemDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.SystemDAOImpl" parent="parentDAO" />
+    <bean id="ministryDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.MinistryDAOImpl" parent="parentDAO" />
+    <bean id="tiaojiUserDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.TiaojiUserDAOImpl" parent="parentDAO" />
+    <bean id="postDAO" class="com.chsi.jy.post.dao.hibernate.PostDAOImpl" parent="parentDAO" />
+    <bean id="eduDepartmentDAO" class="com.chsi.zsxx.yxxx.dao.hibernate.EduDepartmentDAOImpl" parent="parentDAO" />
+    <bean id="promptDAO" class="com.chsi.prompt.dao.impl.PromptDAOImpl" parent="parentDAO" />
+	<bean id="zsjhDAO" class="com.chsi.zsjh.dao.hibernate.ZsjhDAOImplCache" parent="parentDAOHasCache"/>
+        
+    <!-- 缓存配置 -->
+	<bean id="cacheProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+        <property name="locations"><value>memcachedclient.properties</value></property>     
+    </bean>
+	<bean id="cacheClient" class="com.chsi.cache.memcached.MemCachedClientManager" factory-method="getMemCachedClient">
+		<constructor-arg type="java.lang.String" value="${POOL_NAME}"/>
+		<constructor-arg type="java.lang.String" value="${APP_NAME}"/>
+	</bean>
+	     
+</beans>

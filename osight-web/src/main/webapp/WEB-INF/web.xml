@@ -31,4 +31,11 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	<jsp-config>
+	<taglib>
+		<taglib-uri></taglib-uri>
+		<taglib-location></taglib-location>
+	</taglib>
+	</jsp-config>
 </web-app>

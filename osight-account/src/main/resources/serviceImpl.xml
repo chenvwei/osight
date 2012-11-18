@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="locator" class="com.chsi.framework.service.BeanLocator"
+		init-method="init">
+		<property name="beanFactoryLocatorKey" value="servicelayer-context-account" />
+		<property name="factoryLocatorSelector" value="beanRefContext.xml" />
+		<property name="dbProviderName" value="dbProvider" />
+	</bean>
+
+	<bean id="baseDbService" abstract="true" init-method="create"
+		destroy-method="remove">
+		<property name="locator">
+			<ref local="locator" />
+		</property>
+	</bean>
+
+
+	<bean id="academeServiceLocal" class="com.chsi.zsxx.yxxx.service.impl.AcademeServiceImpl"
+		parent="baseDbService" />
+</beans>
+
+
