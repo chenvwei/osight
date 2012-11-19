@@ -12,7 +12,7 @@ import com.osight.account.pojos.UserData;
 public class UserTest {
     public static void main(String[] args) {
         UserService userService = UserServiceFactory.getAcademeServiceLocal();
-        UserData u = userService.getUserData("1");
-        System.out.println(u.getName());
+        UserData u = userService.getUserData("2");
+        System.out.println(u.getName()+":"+u.getEmail());
     }
 }
