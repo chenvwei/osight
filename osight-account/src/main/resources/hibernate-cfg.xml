@@ -1,81 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-    <session-factory>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.HeaOfficeData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserAcademeData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserSchoolData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.MoeGaoxiaoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserBaoKaoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserMinistryData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.BaoKaoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.AcademeData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.MinistryData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.JyData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.EduDepartmentData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserEduDepartmentData"/>
-				
-		<mapping class="com.chsi.zsxx.yxxx.pojos.CategoryData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.CategoryItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.DeptData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.GaokaoInfoCategoryData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.GaokaoInfoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InfoMoeVerifySchData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InfoShyjData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InfoAuthData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InfoDetailData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InfoItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.InformationData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.SchoolData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.HighSchoolData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.HighSchoolInfoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserHighSchoolData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.SystemCategoryItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.SystemInfoItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserCategoryItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserHeaOfficeData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserInfoItemData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserMoeGaoxiaoData"/>
-		<mapping class="com.chsi.zxdy.pojos.ForumData"/>
-		<mapping class="com.chsi.zxdy.pojos.ForumStatusData"/>
-		<mapping class="com.chsi.zxdy.pojos.ForumTimeData"/>
-		<mapping class="com.chsi.zxdy.pojos.RegionData"/>
-		<mapping class="com.chsi.zxdy.pojos.RegionStatusData"/>
-		<mapping class="com.chsi.zxdy.pojos.GaokaoInfoForumData"/>
-		<mapping class="com.chsi.zxdy.pojos.QuestionData"/>
-		<mapping class="com.chsi.zxdy.pojos.ReplyData"/>
-		<mapping class="com.chsi.zsxx.user.pojos.PubUserData"/>
-		<mapping class="com.chsi.zsxx.user.pojos.PubUserExtraData"/>
-		<mapping class="com.chsi.zsxx.user.pojos.PubUserZyData"/>
-		<mapping class="com.chsi.zsxx.file.pojos.DirectoryData"/>
-		<mapping class="com.chsi.zsxx.file.pojos.FileData"/>
-		<mapping class="com.chsi.zsxx.dic.country.CountryData"/>
-		<mapping class="com.chsi.zsxx.dic.country.ZJ_CountryData"/>
-		<mapping class="com.chsi.zsxx.user.pojos.UserBaoMingData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.TrainData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.UserTrainData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.ContactData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.TimeData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.SchoolInfoData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.ConfidentialData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.ContactLogData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.DicYxmcData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.DicYxData"/>
-		<mapping class="com.chsi.zsxx.yxxx.pojos.SchInfoData"/>
-		<!-- chsi admin -->	
-		<mapping class="com.chsi.chsiAdmin.zsxx.yxxx.pojo.MajorInfoData"/>	
-		
-		<mapping class="com.chsi.zsxx.yxxx.pojos.ImageData"/>
-		
-		<!-- chis's new htgl -->
-		<mapping class="com.chsi.prompt.pojos.PromptItemData"/>
-		<mapping class="com.chsi.prompt.pojos.PromptModuleData"/>
-		<mapping class="com.chsi.prompt.pojos.PromptModuleItemData"/>
-		<mapping class="com.chsi.prompt.pojos.PromptPatternData"/>
-		<mapping class="com.chsi.zsxx.user.pojos.RetrievePwdData"/>
-		
-    </session-factory>
+	<session-factory>
+		<mapping class="com.osight.account.pojos.UserData" />
+	</session-factory>
 </hibernate-configuration>

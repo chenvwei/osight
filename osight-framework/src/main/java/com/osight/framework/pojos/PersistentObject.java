@@ -31,6 +31,10 @@ public abstract class PersistentObject implements Serializable {
 
     public abstract void setId(String id);
 
+    public void setData(PersistentObject vo) {
+        this.copyProperties(vo);
+    }
+
     public void copyProperties(PersistentObject origin) {
         try {
             ConvertUtils.register(new DoubleConverter(null), Double.class);

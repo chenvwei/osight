@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
-	<bean id="locator" class="com.chsi.framework.service.BeanLocator"
+	<bean id="locator" class="com.osight.framework.service.BeanLocator"
 		init-method="init">
 		<property name="beanFactoryLocatorKey" value="servicelayer-context-account" />
 		<property name="factoryLocatorSelector" value="beanRefContext.xml" />
@@ -16,7 +16,7 @@
 	</bean>
 
 
-	<bean id="academeServiceLocal" class="com.chsi.zsxx.yxxx.service.impl.AcademeServiceImpl"
+	<bean id="userService" class="com.osight.account.service.impl.UserServiceImpl"
 		parent="baseDbService" />
 </beans>
 
