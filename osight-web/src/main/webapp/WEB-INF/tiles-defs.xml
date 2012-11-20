@@ -9,6 +9,7 @@
 	<!-- 基础配置 -->
 	<definition name="main" template="/layouts/mainLayout.jsp">
 		<put-attribute name="top" value="/common/header.jsp" />
+		<put-attribute name="menu" value="/common/menu.jsp" />
 		<put-attribute name="bottom" value="/common/footer.jsp" />
 	</definition>
 

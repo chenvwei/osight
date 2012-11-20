@@ -11,7 +11,6 @@
 		<module>osight-framework</module>
 		<module>osight-web</module>
 		<module>application</module>
-		<module>osight-account</module>
 	</modules>
 	
 	<build>
@@ -198,10 +197,6 @@
 				<artifactId>xwork-core</artifactId>
 				<version>2.3.4.1</version>
 				<exclusions>
-					<exclusion>
-						<groupId>org.apache.commons</groupId>
-						<artifactId>commons-lang3</artifactId>
-					</exclusion>
 					<exclusion>
 						<groupId>asm</groupId>
 						<artifactId>asm</artifactId>
