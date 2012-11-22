@@ -2,54 +2,52 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.osight</groupId>
 		<artifactId>osight-parent</artifactId>
+		<groupId>com.osight</groupId>
 		<version>0.0.1-SNAPSHOT</version>
-	</parent>	
+	</parent>
 	<groupId>com.osight</groupId>
-	<artifactId>osight-web</artifactId>
+	<artifactId>osight-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>rodneytt osight's war</name>
-	
+	<name>rodneytt's osight user account</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.osight</groupId>
 			<artifactId>osight-framework</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<scope>provided</scope>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-core</artifactId>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
-			<scope>provided</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.struts</groupId>
-			<artifactId>struts2-tiles-plugin</artifactId>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-api</artifactId>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-jsp</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.struts.xwork</groupId>
-			<artifactId>xwork-core</artifactId>
+			<groupId>jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 </project>

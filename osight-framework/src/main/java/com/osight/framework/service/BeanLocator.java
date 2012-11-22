@@ -17,7 +17,7 @@ import org.springframework.context.access.ContextSingletonBeanFactoryLocator;
 import com.osight.framework.hibernate.HibernateInvocationHandler;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class BeanLocator {

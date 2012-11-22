@@ -7,7 +7,7 @@ package com.osight.framework.service;
 /**
  * 为service对象提供数据库相关的服务
  * 
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public interface DbProvider {

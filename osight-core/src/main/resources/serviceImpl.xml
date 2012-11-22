@@ -16,7 +16,9 @@
 	</bean>
 
 
-	<bean id="userService" class="com.osight.account.service.impl.UserServiceImpl"
+	<bean id="userService" class="com.osight.core.service.impl.UserServiceImpl"
+		parent="baseDbService" />
+	<bean id="lotteryService" class="com.osight.core.service.impl.LotteryServiceImpl"
 		parent="baseDbService" />
 </beans>
 

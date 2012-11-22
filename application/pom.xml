@@ -125,6 +125,14 @@
 			<groupId>javassist</groupId>
 			<artifactId>javassist</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>antlr</groupId>
+			<artifactId>antlr</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

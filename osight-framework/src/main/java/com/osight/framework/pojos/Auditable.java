@@ -6,7 +6,7 @@ package com.osight.framework.pojos;
 import java.util.Calendar;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public interface Auditable {

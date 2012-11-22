@@ -54,7 +54,9 @@
 		</property>
 	</bean>
 
-	<bean id="userDAO" class="com.osight.account.dao.impl.UserDAOImpl"
+	<bean id="userDAO" class="com.osight.core.dao.impl.UserDAOImpl"
+		parent="parentDAO" />
+	<bean id="lotteryDAO" class="com.osight.core.dao.impl.LotteryDAOImpl"
 		parent="parentDAO" />
 
 </beans>

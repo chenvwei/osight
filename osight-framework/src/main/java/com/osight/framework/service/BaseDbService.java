@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw
  * @version $Id$
  */
 public abstract class BaseDbService implements IService {
@@ -20,12 +20,7 @@ public abstract class BaseDbService implements IService {
 
     public void create() {
         if (null == locator) {
-            ServiceConstantLocator l = new ServiceConstantLocator(getClass());
-            locator = new BeanLocator();
-            locator.setFactoryLocatorSelector(l.getFactoryLocatorSelector());
-            locator.setBeanFactoryLocatorKey(l.getBeanFactoryLocatorKey());
-            locator.setDbProviderName(l.getDbProviderName());
-            locator.init();
+            throw new IllegalArgumentException("没有配置locator属性");
         }
 
         dbProvider = locator.getDbProvider();

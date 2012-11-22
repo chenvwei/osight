@@ -6,7 +6,7 @@ package com.osight.framework.invoke;
 import java.io.Serializable;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class InvokeInfo implements Serializable {

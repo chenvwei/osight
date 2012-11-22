@@ -1,15 +1,15 @@
 /*
  * Created on 2012-11-19
  */
-package com.osight.account.service.impl;
+package com.osight.core.service.impl;
 
-import com.osight.account.dao.UserDAO;
-import com.osight.account.pojos.UserData;
-import com.osight.account.service.UserService;
+import com.osight.core.dao.UserDAO;
+import com.osight.core.pojos.UserData;
+import com.osight.core.service.UserService;
 import com.osight.framework.service.BaseDbService;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class UserServiceImpl extends BaseDbService implements UserService {

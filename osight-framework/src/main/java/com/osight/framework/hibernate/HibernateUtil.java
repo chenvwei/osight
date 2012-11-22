@@ -21,9 +21,8 @@ import org.slf4j.LoggerFactory;
 import com.osight.framework.exception.DAOException;
 import com.osight.framework.pojos.PersistentObject;
 
-
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class HibernateUtil {
@@ -47,7 +46,7 @@ public class HibernateUtil {
 
     public void save(PersistentObject obj) {
         try {
-            if (obj.getId() == null || obj.getId().trim().equals("")) {
+            if (obj.getId() == 0) {
                 getSession().save(obj);
             } else {
                 if (!getSession().contains(obj)) {
@@ -95,7 +94,7 @@ public class HibernateUtil {
 
     public void saveOrUpdate(PersistentObject obj) {
         try {
-            if (obj.getId() == null || obj.getId().trim().equals("")) {
+            if (obj.getId() == 0) {
                 getSession().save(obj);
             } else {
                 boolean update = false;

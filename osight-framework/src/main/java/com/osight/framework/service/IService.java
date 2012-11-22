@@ -4,7 +4,7 @@
 package com.osight.framework.service;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public interface IService extends ServiceWithLifestyle {

@@ -27,9 +27,9 @@ public abstract class PersistentObject implements Serializable {
     public PersistentObject() {
     }
 
-    public abstract String getId();
+    public abstract long getId();
 
-    public abstract void setId(String id);
+    public abstract void setId(long id);
 
     public void setData(PersistentObject vo) {
         this.copyProperties(vo);

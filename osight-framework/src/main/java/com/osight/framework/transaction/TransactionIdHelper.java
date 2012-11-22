@@ -11,7 +11,7 @@ import com.osight.framework.util.UUIDUtil;
 
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class TransactionIdHelper {

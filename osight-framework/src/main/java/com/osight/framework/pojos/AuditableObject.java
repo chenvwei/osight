@@ -9,7 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 @MappedSuperclass

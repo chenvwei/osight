@@ -1,14 +1,14 @@
 /*
  * Created on 2012-11-19
  */
-package com.osight.account.dao.impl;
+package com.osight.core.dao.impl;
 
-import com.osight.account.dao.UserDAO;
-import com.osight.account.pojos.UserData;
+import com.osight.core.dao.UserDAO;
+import com.osight.core.pojos.UserData;
 import com.osight.framework.hibernate.BaseHibernateDAO;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class UserDAOImpl extends BaseHibernateDAO implements UserDAO {

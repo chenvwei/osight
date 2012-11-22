@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="osight-account/src/main/java"/>
 	<classpathentry kind="src" path="osight-framework/src/main/java"/>
 	<classpathentry kind="src" path="osight-web/src/main/java"/>
-	<classpathentry kind="src" path="osight-account/src/main/resources"/>
+	<classpathentry kind="src" path="osight-core/src/main/java"/>
+	<classpathentry kind="src" path="osight-core/src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1.jar"/>
@@ -32,5 +32,7 @@
 	<classpathentry kind="var" path="M2_REPO/org/apache/tiles/tiles-core/2.0.6/tiles-core-2.0.6.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/tiles/tiles-api/2.0.6/tiles-api-2.0.6.jar"/>
 	<classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/jexcelapi/jxl/2.6.12/jxl-2.6.12.jar"/>
+	<classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>

@@ -1,7 +1,7 @@
 /*
  * Created on 2012-11-19
  */
-package com.osight.account.pojos;
+package com.osight.core.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 @Entity

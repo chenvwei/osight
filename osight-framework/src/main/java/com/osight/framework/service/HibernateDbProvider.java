@@ -13,7 +13,7 @@ import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.framework.hibernate.HibernateInvocationHandler;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw 
  * @version $Id$
  */
 public class HibernateDbProvider implements DbProvider {
