@@ -6,8 +6,8 @@
 	<classpathentry kind="src" path="osight-core/src/main/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1.jar"/>
-	<classpathentry kind="var" path="M2_REPO/org/apache/struts/xwork/xwork-core/2.3.4.1/xwork-core-2.3.4.1.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1.jar" sourcepath="/M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/apache/struts/xwork/xwork-core/2.3.4.1/xwork-core-2.3.4.1.jar" sourcepath="/M2_REPO/org/apache/struts/xwork/xwork-core/2.3.4.1/xwork-core-2.3.4.1-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hibernate/hibernate-core/4.1.8.Final/hibernate-core-4.1.8.Final.jar" sourcepath="/M2_REPO/org/hibernate/hibernate-core/4.1.8.Final/hibernate-core-4.1.8.Final-sources.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.2/slf4j-api-1.7.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hibernate/ejb3-persistence/3.3.2.Beta1/ejb3-persistence-3.3.2.Beta1.jar"/>
@@ -34,5 +34,8 @@
 	<classpathentry kind="var" path="M2_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/jexcelapi/jxl/2.6.12/jxl-2.6.12.jar"/>
 	<classpathentry kind="var" path="M2_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
+	<classpathentry kind="var" path="M2_REPO/javax/servlet/servlet-api/2.4/servlet-api-2.4.jar" sourcepath="M2_REPO/javax/servlet/servlet-api/2.4/servlet-api-2.4-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2.jar" sourcepath="/M2_REPO/commons-fileupload/commons-fileupload/1.2.2/commons-fileupload-1.2.2-sources.jar"/>
+	<classpathentry kind="var" path="M2_REPO/commons-io/commons-io/2.4/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>
