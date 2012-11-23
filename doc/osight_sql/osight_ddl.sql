@@ -78,6 +78,37 @@ create table album_photo(
 
 
 
+create table album(
+       id bigint not null AUTO_INCREMENT,
+       name varchar(200) not null,
+       description text,
+       access_type int not null DEFAULT 0,
+       
+       PRIMARY key(id)
+       
+);
+create table album_access(
+       id bigint not null AUTO_INCREMENT,
+       album_id bigint not null,
+       type int not null default 0,
+       question text,
+       answer text ,
+       password varchar(100),
+       primary key(id),
+       FOREIGN KEY (album_id) REFERENCES album (id)
+);
+
+create table dic(
+       id bigint not null AUTO_INCREMENT,
+       category varchar(100) not null,
+       code bigint not null,
+       name text not null,
+       PRIMARY key(id),
+       UNIQUE key(category,code)
+)
+
+
+select * from dic;
 select now();
 insert into lottery(id,date,number,createdon) values(2,NOW(),'1234',null);
 select * from lottery;
