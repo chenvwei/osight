@@ -12,8 +12,17 @@
 		<put-attribute name="menu" value="/common/menu.jsp" />
 		<put-attribute name="bottom" value="/common/footer.jsp" />
 	</definition>
+	<definition name="album" template="/layouts/albumLayout.jsp">
+		<put-attribute name="top" value="/common/header.jsp" />
+		<put-attribute name="menu" value="/common/menu.jsp" />
+		<put-attribute name="bottom" value="/common/footer.jsp" />
+	</definition>
 
 	<definition name="main.main" extends="main">
 		<put-attribute name="main" value="/main.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="album.main" extends="album">
+		<put-attribute name="main" value="/album/main.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

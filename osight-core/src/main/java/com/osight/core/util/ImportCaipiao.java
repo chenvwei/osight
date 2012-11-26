@@ -17,10 +17,12 @@ import jxl.Workbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.osight.core.pojos.AlbumData;
 import com.osight.core.pojos.LotteryData;
 import com.osight.core.pojos.LotteryNumberData;
+import com.osight.core.service.AlbumService;
+import com.osight.core.service.AlbumServiceFactory;
 import com.osight.core.service.LotteryService;
-import com.osight.core.service.LotteryServiceFactory;
 
 /**
  * @author chenw
@@ -28,11 +30,23 @@ import com.osight.core.service.LotteryServiceFactory;
  */
 public class ImportCaipiao {
     Logger log = LoggerFactory.getLogger(getClass());
-    LotteryService ls = LotteryServiceFactory.getLotteryService();
+    LotteryService ls = null;
 
     public static void main(String[] args) {
         ImportCaipiao ic = new ImportCaipiao();
-        ic.importCP();
+        ic.getAlbum();
+    }
+
+    public void getAlbum() {
+        AlbumService albumService = AlbumServiceFactory.getAlbumService();
+        AlbumData data = albumService.getAlbumById(3);
+        log.info(data.getId() + "=" + data.getType() + ":" + data.getName() + ":" + data.getDescription());
+    }
+
+    public void newAlbum() {
+        AlbumService albumService = AlbumServiceFactory.getAlbumService();
+        AlbumData album = albumService.newPublicAlbum("上海", "东方明珠");
+        log.info(album.getId() + "=" + album.getType());
     }
 
     public void testInsert() {

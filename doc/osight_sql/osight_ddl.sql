@@ -77,7 +77,7 @@ create table album_photo(
 )
 
 
-
+select * from album;
 select now();
 insert into lottery(id,date,number,createdon) values(2,NOW(),'1234',null);
 select * from lottery;

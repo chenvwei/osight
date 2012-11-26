@@ -5,8 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/css/default.css">
-<title>云游四方工作室</title>
+<title>相册</title>
+<link type="text/css" rel="stylesheet" href="/css/default.css">
+<link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
+<!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="/css/jquery.ui.ie.css"/>
+<![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.js"></script>
 <jsp:include page="/common/ga.jsp"></jsp:include>
 </head>
 <body>
@@ -18,12 +24,9 @@
 			<div class="menu">
 				<tiles:insertAttribute name="menu"></tiles:insertAttribute>
 			</div>
-
 			<div class="content">
 				<tiles:insertAttribute name="main"></tiles:insertAttribute>
 			</div>
-
-
 			<div class="bottom">
 				<tiles:insertAttribute name="bottom"></tiles:insertAttribute>
 			</div>

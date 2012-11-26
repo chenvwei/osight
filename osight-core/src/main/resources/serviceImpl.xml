@@ -20,6 +20,8 @@
 		parent="baseDbService" />
 	<bean id="lotteryService" class="com.osight.core.service.impl.LotteryServiceImpl"
 		parent="baseDbService" />
+	<bean id="albumService" class="com.osight.core.service.impl.AlbumServiceImpl"
+		parent="baseDbService" />
 </beans>
 
 

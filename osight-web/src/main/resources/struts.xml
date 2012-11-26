@@ -10,4 +10,9 @@
 			<result type="tiles">main.main</result>
 		</action>
 	</package>
+	<package name="album" namespace="/album" extends="tiles-default">
+		<action name="main">
+			<result type="tiles">album.main</result>
+		</action>
+	</package>
 </struts>

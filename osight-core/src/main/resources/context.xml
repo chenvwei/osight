@@ -58,5 +58,7 @@
 		parent="parentDAO" />
 	<bean id="lotteryDAO" class="com.osight.core.dao.impl.LotteryDAOImpl"
 		parent="parentDAO" />
+	<bean id="albumDAO" class="com.osight.core.dao.impl.AlbumDAOImpl"
+		parent="parentDAO" />
 
 </beans>

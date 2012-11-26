@@ -30,10 +30,11 @@ public class Upload extends HttpServlet {
     private static final long serialVersionUID = 1L;
     Logger log = LoggerFactory.getLogger(getClass());
 
+    @SuppressWarnings("unchecked")
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("upload start------");
-        req.setCharacterEncoding("UTF-8");
+        request.setCharacterEncoding("UTF-8");
         String savePath = "/mnt/web/static/images/";
         File dir = new File(savePath);
         if (!dir.exists()) {
@@ -44,7 +45,7 @@ public class Upload extends HttpServlet {
         upload.setHeaderEncoding("UTF-8");
         List<FileItem> list = null;
         try {
-            list = upload.parseRequest(req);
+            list = upload.parseRequest(request);
         } catch (FileUploadException e) {
             log.error(e.getMessage(), e);
             return;
@@ -65,7 +66,6 @@ public class Upload extends HttpServlet {
                 }
                 File file = null;
                 do {
-                    // 生成文件名：
                     name = UUIDUtil.getRandomUUID();
                     file = new File(savePath + name + extName);
                 } while (file.exists());
@@ -77,10 +77,9 @@ public class Upload extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-
         }
 
-        resp.getWriter().write("1");
+        response.getWriter().write("1");
         log.info("upload end------");
     }
 }

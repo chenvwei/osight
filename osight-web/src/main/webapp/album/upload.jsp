@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>上传照片</title>
-<script src="/js/jquery.js" type="text/javascript"></script>
 <script src="/js/jquery.uploadify.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="/css/uploadify.css">
 <%
