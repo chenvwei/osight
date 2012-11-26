@@ -3,6 +3,8 @@
  */
 package com.osight.core.dao.impl;
 
+import java.util.List;
+
 import com.osight.core.dao.AlbumDAO;
 import com.osight.core.pojos.AlbumData;
 import com.osight.framework.hibernate.BaseHibernateDAO;
@@ -27,5 +29,10 @@ public class AlbumDAOImpl extends BaseHibernateDAO implements AlbumDAO {
     public AlbumData getAlbumById(long id) {
         return (AlbumData) hibernateUtil.getObject(id, AlbumData.class);
     }
+
+	@Override
+	public List<AlbumData> getAllAlbums() {
+		return hibernateUtil.find("select p from AlbumData p");
+	}
 
 }

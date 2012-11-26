@@ -3,6 +3,8 @@
  */
 package com.osight.core.dao;
 
+import java.util.List;
+
 import com.osight.core.pojos.AlbumData;
 
 /**
@@ -13,4 +15,6 @@ public interface AlbumDAO {
     public AlbumData saveOrUpdate(AlbumData data);
 
     public AlbumData getAlbumById(long id);
+    
+    public List<AlbumData> getAllAlbums();
 }

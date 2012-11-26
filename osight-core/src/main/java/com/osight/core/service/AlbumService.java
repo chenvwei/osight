@@ -3,14 +3,18 @@
  */
 package com.osight.core.service;
 
+import java.util.List;
+
 import com.osight.core.pojos.AlbumData;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw
  * @version $Id$
  */
 public interface AlbumService {
     public AlbumData newPublicAlbum(String name, String description);
 
     public AlbumData getAlbumById(long id);
+    
+    public List<AlbumData> getAllAlbums();
 }
