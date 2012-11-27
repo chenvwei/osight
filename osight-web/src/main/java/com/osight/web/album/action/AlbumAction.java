@@ -24,4 +24,29 @@ public class AlbumAction extends BasicSupportAction {
 		albumList = albumService.getAllAlbums();
 		return "list";
 	}
+
+    public AlbumService getAlbumService() {
+        return albumService;
+    }
+
+    public void setAlbumService(AlbumService albumService) {
+        this.albumService = albumService;
+    }
+
+    public AlbumData getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(AlbumData album) {
+        this.album = album;
+    }
+
+    public List<AlbumData> getAlbumList() {
+        return albumList;
+    }
+
+    public void setAlbumList(List<AlbumData> albumList) {
+        this.albumList = albumList;
+    }
+	
 }

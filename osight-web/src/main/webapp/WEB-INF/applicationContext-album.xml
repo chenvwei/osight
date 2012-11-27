@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="no">
+	<bean id="albumService" class="com.osight.core.service.AlbumServiceFactory"
+		factory-method="getAlbumService"></bean>
+
+	<bean id="albumAction" class="com.osight.web.album.action.AlbumAction"
+		singleton="false">
+		<property name="albumService" ref="albumService"></property>
+	</bean>
+
+</beans>

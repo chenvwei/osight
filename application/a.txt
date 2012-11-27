@@ -1,55 +1,0 @@
-[INFO] Scanning for projects...
-[INFO] Searching repository for plugin with prefix: 'dependency'.
-[INFO] ------------------------------------------------------------------------
-[INFO] Building rodneytt osight's ear
-[INFO]    task-segment: [dependency:tree]
-[INFO] ------------------------------------------------------------------------
-Downloading: http://repo1.maven.org/maven2/org/javassist/javassist/3.17.0-GA/javassist-3.17.0-GA.pom
-2/8K6/8K8/8K8K downloaded  (javassist-3.17.0-GA.pom)
-Downloading: http://repo1.maven.org/maven2/org/javassist/javassist/3.17.0-GA/javassist-3.17.0-GA.jar
-4/694K7/694K11/694K14/694K18/694K22/694K25/694K29/694K29/694K33/694K37/694K41/694K45/694K48/694K51/694K55/694K59/694K62/694K66/694K69/694K73/694K77/694K80/694K84/694K86/694K90/694K94/694K97/694K101/694K105/694K109/694K109/694K113/694K116/694K120/694K124/694K128/694K132/694K136/694K140/694K143/694K147/694K151/694K154/694K156/694K160/694K163/694K167/694K171/694K174/694K178/694K179/694K183/694K186/694K190/694K194/694K197/694K201/694K205/694K206/694K210/694K213/694K217/694K221/694K224/694K228/694K230/694K234/694K238/694K241/694K245/694K249/694K253/694K253/694K257/694K261/694K265/694K268/694K272/694K276/694K280/694K284/694K286/694K290/694K294/694K298/694K302/694K306/694K310/694K314/694K317/694K321/694K322/694K325/694K329/694K333/694K337/694K341/694K345/694K347/694K351/694K355/694K359/694K363/694K364/694K368/694K369/694K373/694K377/694K380/694K384/694K388/694K391/694K393/694K397/694K401/694K404/694K408/694K412/694K415/694K419/694K423/694K424/694K427/694K431/694K434/694K438/694K442/694K446/694K450/694K451/694K455/694K459/694K463/694K467/694K470/694K473/694K477/694K481/694K484/694K485/694K489/694K493/694K497/694K501/694K505/694K509/694K512/694K516/694K520/694K523/694K527/694K531/694K534/694K538/694K542/694K544/694K548/694K552/694K556/694K559/694K563/694K567/694K568/694K572/694K575/694K579/694K583/694K586/694K590/694K591/694K592/694K596/694K600/694K604/694K608/694K611/694K615/694K617/694K621/694K625/694K629/694K629/694K633/694K637/694K638/694K642/694K645/694K649/694K653/694K656/694K660/694K664/694K667/694K670/694K674/694K678/694K681/694K685/694K689/694K692/694K694/694K694K downloaded  (javassist-3.17.0-GA.jar)
-[INFO] [dependency:tree {execution: default-cli}]
-[INFO] com.osight:osight.ear:ear:0.0.1-SNAPSHOT
-[INFO] +- com.osight:osight-framework:jar:0.0.1-SNAPSHOT:compile
-[INFO] +- com.osight:osight-web:war:0.0.1-SNAPSHOT:compile
-[INFO] +- org.slf4j:slf4j-api:jar:1.7.2:compile
-[INFO] +- org.slf4j:slf4j-simple:jar:1.7.2:compile
-[INFO] +- dom4j:dom4j:jar:1.6.1:compile
-[INFO] |  \- xml-apis:xml-apis:jar:1.0.b2:compile
-[INFO] +- org.jboss.logging:jboss-logging:jar:3.1.2.GA:compile
-[INFO] +- org.springframework:spring-core:jar:3.1.3.RELEASE:compile
-[INFO] |  \- commons-logging:commons-logging:jar:1.1.1:compile
-[INFO] +- org.springframework:spring-beans:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-context:jar:3.1.3.RELEASE:compile
-[INFO] |  \- org.springframework:spring-aop:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-orm:jar:3.1.3.RELEASE:compile
-[INFO] |  \- org.springframework:spring-tx:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-jdbc:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-expression:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-asm:jar:3.1.3.RELEASE:compile
-[INFO] +- org.springframework:spring-dao:jar:2.0.8:compile
-[INFO] |  \- aopalliance:aopalliance:jar:1.0:compile
-[INFO] +- org.hibernate:hibernate-core:jar:4.1.8.Final:compile
-[INFO] |  +- org.jboss.spec.javax.transaction:jboss-transaction-api_1.1_spec:jar:1.0.0.Final:compile
-[INFO] |  \- org.hibernate.common:hibernate-commons-annotations:jar:4.0.1.Final:compile
-[INFO] +- javax.transaction:jta:jar:1.1:compile
-[INFO] +- commons-beanutils:commons-beanutils:jar:1.8.3:compile
-[INFO] +- commons-lang:commons-lang:jar:2.6:compile
-[INFO] +- commons-pool:commons-pool:jar:1.6:compile
-[INFO] +- commons-digester:commons-digester:jar:2.1:compile
-[INFO] +- commons-collections:commons-collections:jar:3.2.1:compile
-[INFO] +- commons-fileupload:commons-fileupload:jar:1.2.2:compile
-[INFO] +- commons-io:commons-io:jar:2.4:compile
-[INFO] +- commons-codec:commons-codec:jar:1.7:compile
-[INFO] +- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final:compile
-[INFO] +- org.javassist:javassist:jar:3.17.0-GA:compile
-[INFO] +- jexcelapi:jxl:jar:2.6.12:compile
-[INFO] +- antlr:antlr:jar:2.7.7:compile
-[INFO] \- org.tuckey:urlrewritefilter:jar:4.0.3:compile
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESSFUL
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 26 seconds
-[INFO] Finished at: Mon Nov 26 09:51:25 CST 2012
-[INFO] Final Memory: 16M/40M
-[INFO] ------------------------------------------------------------------------

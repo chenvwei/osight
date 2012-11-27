@@ -14,5 +14,8 @@
 		<action name="main">
 			<result type="tiles">album.main</result>
 		</action>
+		<action name="album" class="albumAction">
+			<result type="tiles" name="list">album.list</result>
+		</action>
 	</package>
 </struts>
