@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>相册</title>
+<link href="/favicon.ico" type="image/x-icon" rel=icon> 
 <link type="text/css" rel="stylesheet" href="/css/default.css">
 <link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
 <!--[if IE]>

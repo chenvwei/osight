@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="/favicon.ico" type="image/x-icon" rel=icon> 
 <link rel="stylesheet" href="/css/default.css">
 <title>云游四方工作室</title>
 <jsp:include page="/common/ga.jsp"></jsp:include>
