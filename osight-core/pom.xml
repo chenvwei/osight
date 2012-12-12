@@ -55,5 +55,10 @@
 		    <artifactId>hibernate-jpa-2.0-api</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>com.aliyun.openservices</groupId>
+			<artifactId>aliyun-openservices</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 </project>
