@@ -5,6 +5,9 @@ package com.osight.web.servlet;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -20,6 +23,8 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.osight.core.service.AlbumService;
+import com.osight.core.service.AlbumServiceFactory;
 import com.osight.framework.util.UUIDUtil;
 
 /**
@@ -28,15 +33,26 @@ import com.osight.framework.util.UUIDUtil;
  */
 public class Upload extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    Logger log = LoggerFactory.getLogger(getClass());
+    private Logger log = LoggerFactory.getLogger(getClass());
+
+    private AlbumService albumService = AlbumServiceFactory.getAlbumService();
+
+    public static void main(String[] args) {
+        String path = "/mnt/web/static/images/album/2012/12/14/fdsafdsf.jpg";
+        System.out.println(path.substring(path.indexOf("images")));
+    }
 
     @SuppressWarnings("unchecked")
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.info("upload start------");
         request.setCharacterEncoding("UTF-8");
-        String savePath = "/mnt/web/static/images/";
-        File dir = new File(savePath);
+        StringBuffer savePath = new StringBuffer("/mnt/web/static/images/album/");
+        Calendar c = Calendar.getInstance();
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd/");
+        String date = df.format(c.getTime());
+        savePath.append(date);
+        File dir = new File(savePath.toString());
         if (!dir.exists()) {
             dir.mkdirs();
         }
@@ -73,6 +89,7 @@ public class Upload extends HttpServlet {
                 log.info("path:{}", saveFile.getAbsolutePath());
                 try {
                     it.write(saveFile);
+                    albumService.newPhoto(1, saveFile.getAbsolutePath(), "none");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

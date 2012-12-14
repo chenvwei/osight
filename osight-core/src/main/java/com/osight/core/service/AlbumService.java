@@ -6,6 +6,7 @@ package com.osight.core.service;
 import java.util.List;
 
 import com.osight.core.pojos.AlbumData;
+import com.osight.core.pojos.AlbumPhotoData;
 
 /**
  * @author chenw
@@ -17,4 +18,6 @@ public interface AlbumService {
     public AlbumData getAlbumById(long id);
     
     public List<AlbumData> getAllAlbums();
+    
+    public AlbumPhotoData newPhoto(long albumId,String realPath,String description);
 }

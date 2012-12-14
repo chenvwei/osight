@@ -6,6 +6,7 @@ package com.osight.core.dao;
 import java.util.List;
 
 import com.osight.core.pojos.AlbumData;
+import com.osight.core.pojos.AlbumPhotoData;
 
 /**
  * @author chenw
@@ -13,6 +14,8 @@ import com.osight.core.pojos.AlbumData;
  */
 public interface AlbumDAO {
     public AlbumData saveOrUpdate(AlbumData data);
+    
+    public AlbumPhotoData saveOrUpdae(AlbumPhotoData data);
 
     public AlbumData getAlbumById(long id);
     
