@@ -26,7 +26,7 @@
 			autoOpen : false,
 			modal : true,
 			buttons : {
-				Ok : function() {
+				'确定' : function() {
 					$(this).dialog("close");
 				}
 			}
@@ -55,11 +55,11 @@
 		<table>
 			<tr>
 				<td>相册名称：</td>
-				<td><s:text name="album.name"></s:text></td>
+				<td><s:textfield name="album.name"></s:textfield></td>
 			</tr>
 			<tr>
 				<td>相册描述：</td>
-				<td><s:text name="album.description"></s:text></td>
+				<td><s:textfield name="album.description"></s:textfield></td>
 			</tr>
 			<tr>
 				<td>访问设置：</td>
