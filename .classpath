@@ -3,8 +3,8 @@
 	<classpathentry kind="src" path="osight-framework/src/main/java"/>
 	<classpathentry kind="src" path="osight-web/src/main/java"/>
 	<classpathentry kind="src" path="osight-core/src/main/java"/>
-	<classpathentry kind="src" path="osight-core/src/main/resources"/>
 	<classpathentry kind="src" path="osight-core/src/test/java"/>
+	<classpathentry kind="src" path="osight-core/src/test/resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="var" path="M2_REPO/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1.jar" sourcepath="/M2_REPO/org/apache/struts/struts2-core/2.3.4.1/struts2-core-2.3.4.1-sources.jar"/>
@@ -48,5 +48,6 @@
 	<classpathentry kind="var" path="M2_REPO/commons-codec/commons-codec/1.7/commons-codec-1.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/jdom/jdom/1.1/jdom-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar"/>
+	<classpathentry kind="var" path="M2_REPO/org/hsqldb/hsqldb/2.2.9/hsqldb-2.2.9.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>

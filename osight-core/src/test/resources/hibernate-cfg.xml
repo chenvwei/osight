@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<mapping class="com.osight.core.pojos.UserData" />
+		<mapping class="com.osight.core.pojos.LotteryData" />
+		<mapping class="com.osight.core.pojos.LotteryNumberData" />
+		<mapping class="com.osight.core.pojos.AlbumData" />
+		<mapping class="com.osight.core.pojos.AlbumPhotoData" />
+	</session-factory>
+</hibernate-configuration>
