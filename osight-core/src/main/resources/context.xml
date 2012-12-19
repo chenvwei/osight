@@ -2,17 +2,12 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-	<!-- <bean id="dataSource1" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-		<property name="jndiName"> <value>java:jdbc/osight</value> </property> </bean> -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.SingleConnectionDataSource"
-		destroy-method="destroy">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://42.121.30.206:3306/osight" />
-		<property name="suppressClose" value="true" />
-		<property name="username" value="root" />
-		<property name="password" value="12qwasZX" />
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+		<property name="jndiName">
+			<value>java:/jdbc/osight</value> 
+		</property> 
 	</bean>
+	
 	<!-- Hibernate SessionFactory for Oralce -->
 	<!-- Choose the dialect that matches your "dataSource" definition -->
 	<bean id="sessionFactory"
