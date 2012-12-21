@@ -14,12 +14,12 @@ public class InvokeInfoHelper {
     protected static Logger log = LoggerFactory.getLogger(InvokeInfoHelper.class);
 
     public static InvokeInfo getCallInfo() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         return callInfo;
     }
 
     public static String getCurrentUser() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return "Anonymous";
         else {
@@ -29,7 +29,7 @@ public class InvokeInfoHelper {
     }
 
     public static String getCurrentUserIp() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return "Unkown";
         else {
@@ -41,7 +41,7 @@ public class InvokeInfoHelper {
     }
 
     public static String getCurrentServerIp() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return "Unkown";
         else {
@@ -51,7 +51,7 @@ public class InvokeInfoHelper {
     }
 
     public static String getCurrentModuleId() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return "Unkown";
         else {
@@ -62,7 +62,7 @@ public class InvokeInfoHelper {
     }
 
     public static String getCurrentSystemId() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return "Unkown";
         else {
@@ -72,7 +72,7 @@ public class InvokeInfoHelper {
     }
 
     public static String getCallId() {
-        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getCallInfo();
+        InvokeInfo callInfo = InvokeInfoThreadLocalManager.getInvokeInfo();
         if (null == callInfo)
             return null;
         else {

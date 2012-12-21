@@ -12,14 +12,14 @@ import com.osight.framework.hibernate.ThreadLocalManager;
 public class InvokeInfoThreadLocalManager {
     public static final String INVOKE_INFO = "invokeInfo#rODnEy87ZhiLIAo";
 
-    public static InvokeInfo getCallInfo() {
+    public static InvokeInfo getInvokeInfo() {
         return (InvokeInfo) ThreadLocalManager.getResource(INVOKE_INFO);
     }
 
-    public static void bindCallInfo(InvokeInfo callInfo) {
-        if (null == callInfo)
+    public static void bindInvokeInfo(InvokeInfo invokeInfo) {
+        if (null == invokeInfo)
             throw new IllegalArgumentException();
-        ThreadLocalManager.bindResource(INVOKE_INFO, callInfo);
+        ThreadLocalManager.bindResource(INVOKE_INFO, invokeInfo);
     }
 
     public static void unbind() {
