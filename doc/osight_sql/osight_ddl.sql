@@ -1,4 +1,5 @@
-﻿CREATE table lottery(
+﻿--彩票
+CREATE table lottery(
        id int not null AUTO_INCREMENT,
        issueno int not null,
        date date not null,
@@ -24,6 +25,7 @@ create table lottery_number(
        PRIMARY key(id),
        FOREIGN KEY (lottery_id) REFERENCES lottery (id)
 );
+--相册
 CREATE TABLE album (
   id bigint(20) NOT NULL AUTO_INCREMENT,
   name varchar(200) NOT NULL,
@@ -74,7 +76,72 @@ create table album_photo(
        UPDATEDSERVER VARCHAR(20),
        PRIMARY KEY (id),
        FOREIGN KEY (album_id) REFERENCES album (id)
+);
+--博客
+create table article(
+       id bigint not null AUTO_INCREMENT,
+       email tinytext not null,
+       title text not null,
+       content text not null,
+       pv bigint not null default 0,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(20),
+       UPDATEDSERVER VARCHAR(20),
+       PRIMARY KEY (id)
+);
+create table article_comment(
+       id bigint not null AUTO_INCREMENT,
+       email tinytext not null,       
+       article_id bigint not null,
+       title text not null,
+       content text not null,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(20),
+       UPDATEDSERVER VARCHAR(20),
+       FOREIGN KEY (article_id) REFERENCES article (id),
+       PRIMARY KEY (id)
+       
 )
+create table label(
+       id bigint NOT null AUTO_INCREMENT,
+       name text not null,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(20),
+       UPDATEDSERVER VARCHAR(20),
+       PRIMARY KEY (id)     
+);
+create table article_label(
+       id bigint not null AUTO_INCREMENT,
+       article_id bigint not null,
+       label_id bigint not null,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(20),
+       UPDATEDSERVER VARCHAR(20),
+       PRIMARY KEY (id),
+       FOREIGN KEY (article_id) REFERENCES article (id),
+       FOREIGN KEY (label_id) REFERENCES label (id)
+)
+select * from article;
 select * from album_photo;
 
 select now();
