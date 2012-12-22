@@ -162,7 +162,7 @@ public class HibernateUtil {
      * @param maxResult
      * @return
      */
-    public List find(String hql, Object[] args, Type[] types, int firstResult, int maxResult) {
+    public <T> List<T> find(String hql, Object[] args, Type[] types, int firstResult, int maxResult) {
         try {
             Query q = getSession().createQuery(hql);
             if (null != args && args.length > 0)
@@ -259,7 +259,7 @@ public class HibernateUtil {
         }
     }
 
-    public List find(String sql) {
+    public <T> List<T> find(String sql) {
         try {
             Query q = getSession().createQuery(sql);
             return q.list();

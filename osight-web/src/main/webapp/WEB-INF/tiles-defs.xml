@@ -40,4 +40,7 @@
 	<definition name="article.add" extends="article">
 		<put-attribute name="main" value="/article/add.jsp"></put-attribute>
 	</definition>
+	<definition name="article.view" extends="article">
+		<put-attribute name="main" value="/article/view.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

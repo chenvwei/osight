@@ -8,6 +8,7 @@
 <title>博客</title>
 <link href="/favicon.ico" type="image/x-icon" rel=icon> 
 <link type="text/css" rel="stylesheet" href="/css/default.css">
+<link type="text/css" rel="stylesheet" href="/css/article.css">
 <link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
 <!--[if IE]>
   <link rel="stylesheet" type="text/css" href="/css/jquery.ui.ie.css"/>

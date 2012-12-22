@@ -1,5 +1,7 @@
 package com.osight.core.service.impl;
 
+import java.util.List;
+
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
@@ -39,5 +41,10 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-	
+
+	@Override
+	public List<ArticleData> getAllArticles() {
+		return articleDao.getAllArticles();
+	}
+
 }

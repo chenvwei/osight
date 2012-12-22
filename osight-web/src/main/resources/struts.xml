@@ -19,6 +19,9 @@
 		</action>
 	</package>
 	<package name="article" namespace="/article" extends="tiles-default">
+		<action name="view" class="articleAction" method="view">
+			<result type="tiles" name="view">article.view</result>
+		</action>
 		<action name="main">
 			<result type="tiles">article.add</result>
 		</action>

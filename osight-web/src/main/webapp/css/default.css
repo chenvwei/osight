@@ -27,27 +27,17 @@ h1 {
 	font-size: 2em;
 }
 
-h2 {
-	font-size: 1.6em;
-}
-
 h3 {
 	font-size: 1em;
 }
 
 a {
+	color: #2970A6;
 	text-decoration: none;
-	border-bottom: thin dashed #B9A395;
-	color: #834621;
-}
-
-a:visited {
-	color: #493830;
-	border-bottom: thin dashed #7C6052;
 }
 
 a:hover {
-	border-bottom: none;
+	text-decoration: underline;
 }
 
 a img {
@@ -68,14 +58,14 @@ img.right {
 .container {
 	background: #fff url(/images/img01.jpg) repeat-x left top;
 	padding: 0;
-	margin:0 100px;
+	margin: 0 100px;
 	zoom: 1;
 }
 
 .container>.content {
 	background-color: #F5F0E0;
-	padding: 20px;
-	margin: 0 100px;
+	padding: 5px;
+	margin: 0;
 	/* negative indent the amount of the padding to maintain the grid system */
 	-webkit-border-radius: 0 0 6px 6px;
 	-moz-border-radius: 0 0 6px 6px;
