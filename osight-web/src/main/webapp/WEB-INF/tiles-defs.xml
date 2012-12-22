@@ -17,6 +17,11 @@
 		<put-attribute name="menu" value="/common/menu.jsp" />
 		<put-attribute name="bottom" value="/common/footer.jsp" />
 	</definition>
+	<definition name="article" template="/layouts/articleLayout.jsp">
+		<put-attribute name="top" value="/common/header.jsp" />
+		<put-attribute name="menu" value="/common/menu.jsp" />
+		<put-attribute name="bottom" value="/common/footer.jsp" />
+	</definition>
 
 	<definition name="main.main" extends="main">
 		<put-attribute name="main" value="/main.jsp"></put-attribute>
@@ -27,5 +32,12 @@
 	</definition>
 	<definition name="album.list" extends="album">
 		<put-attribute name="main" value="/album/main.jsp"></put-attribute>
+	</definition>
+	<!-- 博客 -->
+	<definition name="article.list" extends="article">
+		<put-attribute name="main" value="/article/list.jsp"></put-attribute>
+	</definition>
+	<definition name="article.add" extends="article">
+		<put-attribute name="main" value="/article/add.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

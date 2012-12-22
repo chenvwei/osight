@@ -10,5 +10,6 @@
 		<mapping class="com.osight.core.pojos.LotteryNumberData" />
 		<mapping class="com.osight.core.pojos.AlbumData" />
 		<mapping class="com.osight.core.pojos.AlbumPhotoData" />
+		<mapping class="com.osight.core.pojos.ArticleData"/>
 	</session-factory>
 </hibernate-configuration>

@@ -22,6 +22,10 @@
 		parent="baseDbService" />
 	<bean id="albumService" class="com.osight.core.service.impl.AlbumServiceImpl"
 		parent="baseDbService" />
+	<bean id="articleService" class="com.osight.core.service.impl.ArticleServiceImpl"
+		parent="baseDbService">
+		<property name="userService" ref="userService"></property>
+	</bean>
 </beans>
 
 

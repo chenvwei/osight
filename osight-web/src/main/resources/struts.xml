@@ -18,4 +18,13 @@
 			<result type="tiles" name="list">album.list</result>
 		</action>
 	</package>
+	<package name="article" namespace="/article" extends="tiles-default">
+		<action name="main">
+			<result type="tiles">article.add</result>
+		</action>
+		<action name="article" class="articleAction">
+			<result type="tiles" name="list">article.list</result>
+			<result type="tiles" name="add">article.add</result>
+		</action>
+	</package>
 </struts>

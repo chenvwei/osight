@@ -5,48 +5,84 @@ package com.osight.core.pojos;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.osight.framework.pojos.AuditableObject;
+
 /**
- * @author chenw 
+ * @author chenw
  * @version $Id$
  */
 @Entity
 @Table(name = "user")
-public class UserData {
-    @Id
-    @Column(name = "ID")
-    private String id;
+public class UserData extends AuditableObject {
 
-    @Column(name = "NAME", nullable = false)
-    private String name;
+	/**
+	 * serialVersionUID
+	 */
+	private static final long	serialVersionUID	= 1L;
 
-    @Column(name = "EMAIL", nullable = false)
-    private String email;
+	@Id
+	@Column(name = "ID", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long				id;
 
-    public String getId() {
-        return id;
-    }
+	@Column(name = "user_name")
+	private String				userName;
+	
+	@Column(name = "nick_name", nullable = false)
+	private String				nickName;
+	
+	@Column(name = "email", nullable = false)
+	private String				email;
+	
+	@Column(name = "website")
+	private String				website;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	@Override
+	public long getId() {
 
-    public String getName() {
-        return name;
-    }
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getUserName() {
+		return userName;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getWebsite() {
+		return website;
+	}
+
+	public void setWebsite(String website) {
+		this.website = website;
+	}
+
+	@Override
+	public void setId(long id) {
+		this.id = id;
+	}
 
 }

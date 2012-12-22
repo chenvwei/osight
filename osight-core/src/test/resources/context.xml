@@ -27,7 +27,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
 				<prop key="hibernate.cache.provider_class">org.hibernate.cache.OSCacheProvider</prop>
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.use_outer_join">false</prop>
@@ -58,6 +58,8 @@
 	<bean id="lotteryDAO" class="com.osight.core.dao.impl.LotteryDAOImpl"
 		parent="parentDAO" />
 	<bean id="albumDAO" class="com.osight.core.dao.impl.AlbumDAOImpl"
+		parent="parentDAO" />
+	<bean id="articleDAO" class="com.osight.core.dao.impl.ArticleDAOImpl"
 		parent="parentDAO" />
 
 </beans>

@@ -141,7 +141,7 @@ public class HibernateUtil {
         }
     }
 
-    public List find(String sql, Object[] args, Type[] types) {
+    public <T> List<T> find(String sql, Object[] args, Type[] types) {
         try {
             Query q = getSession().createQuery(sql);
             if (null != args && args.length > 0)

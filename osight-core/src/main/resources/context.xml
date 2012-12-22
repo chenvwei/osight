@@ -55,5 +55,7 @@
 		parent="parentDAO" />
 	<bean id="albumDAO" class="com.osight.core.dao.impl.AlbumDAOImpl"
 		parent="parentDAO" />
+	<bean id="articleDAO" class="com.osight.core.dao.impl.ArticleDAOImpl"
+		parent="parentDAO" />
 
 </beans>

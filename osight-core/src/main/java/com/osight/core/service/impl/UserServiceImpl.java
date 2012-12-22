@@ -29,4 +29,20 @@ public class UserServiceImpl extends BaseDbService implements UserService {
     protected void doRemove() {
     }
 
+	@Override
+	public UserData createUser(String nickName, String email) {
+		UserData user = getUserByEmail(email);
+		if(user==null){
+			user = new UserData();
+			user.setEmail(email);
+		}
+		user.setNickName(nickName);
+		return userDAO.saveOrUpdate(user);
+	}
+
+	@Override
+	public UserData getUserByEmail(String email) {
+		return userDAO.getUserByEmail(email);
+	}
+
 }

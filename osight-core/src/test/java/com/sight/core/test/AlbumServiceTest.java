@@ -12,7 +12,7 @@ import com.osight.core.service.AlbumService;
 import com.osight.core.service.AlbumServiceFactory;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw
  * @version $Id$
  */
 public class AlbumServiceTest {

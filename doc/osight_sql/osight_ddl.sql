@@ -12,8 +12,8 @@ CREATE table lottery(
        UPDATEDON     timestamp not null default '0000-00-00 00:00:00' on update current_timestamp,
        CREATEDIP     VARCHAR(100),
        UPDATEDIP     VARCHAR(100),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
        PRIMARY key(id)
 );
 create table lottery_number(
@@ -38,8 +38,8 @@ CREATE TABLE album (
    UPDATEDON     timestamp,
    CREATEDIP     VARCHAR(100),
    UPDATEDIP     VARCHAR(100),
-   CREATEDSERVER VARCHAR(20),
-   UPDATEDSERVER VARCHAR(20),
+   CREATEDSERVER VARCHAR(50),
+   UPDATEDSERVER VARCHAR(50),
   PRIMARY KEY (id)
 );
 CREATE TABLE album_access (
@@ -55,8 +55,8 @@ CREATE TABLE album_access (
    UPDATEDON     timestamp,
    CREATEDIP     VARCHAR(100),
    UPDATEDIP     VARCHAR(100),
-   CREATEDSERVER VARCHAR(20),
-   UPDATEDSERVER VARCHAR(20),
+   CREATEDSERVER VARCHAR(50),
+   UPDATEDSERVER VARCHAR(50),
   PRIMARY KEY (id),
   FOREIGN KEY (album_id) REFERENCES album (id)
 );
@@ -72,15 +72,15 @@ create table album_photo(
        UPDATEDON     timestamp,
        CREATEDIP     VARCHAR(100),
        UPDATEDIP     VARCHAR(100),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
        PRIMARY KEY (id),
        FOREIGN KEY (album_id) REFERENCES album (id)
 );
 --博客
 create table article(
        id bigint not null AUTO_INCREMENT,
-       email tinytext not null,
+       user_id bigint not null,
        title text not null,
        content text not null,
        pv bigint not null default 0,
@@ -90,13 +90,14 @@ create table article(
        UPDATEDON     timestamp,
        CREATEDIP     VARCHAR(30),
        UPDATEDIP     VARCHAR(30),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
-       PRIMARY KEY (id)
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
+       PRIMARY KEY (id),
+       FOREIGN KEY (user_id) REFERENCES user (id)
 );
 create table article_comment(
        id bigint not null AUTO_INCREMENT,
-       email tinytext not null,       
+       user_id bigint not null,     
        article_id bigint not null,
        title text not null,
        content text not null,
@@ -106,9 +107,10 @@ create table article_comment(
        UPDATEDON     timestamp,
        CREATEDIP     VARCHAR(30),
        UPDATEDIP     VARCHAR(30),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
        FOREIGN KEY (article_id) REFERENCES article (id),
+       FOREIGN KEY (user_id) REFERENCES user (id),
        PRIMARY KEY (id)
        
 )
@@ -121,8 +123,8 @@ create table label(
        UPDATEDON     timestamp,
        CREATEDIP     VARCHAR(30),
        UPDATEDIP     VARCHAR(30),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
        PRIMARY KEY (id)     
 );
 create table article_label(
@@ -135,11 +137,27 @@ create table article_label(
        UPDATEDON     timestamp,
        CREATEDIP     VARCHAR(30),
        UPDATEDIP     VARCHAR(30),
-       CREATEDSERVER VARCHAR(20),
-       UPDATEDSERVER VARCHAR(20),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
        PRIMARY KEY (id),
        FOREIGN KEY (article_id) REFERENCES article (id),
        FOREIGN KEY (label_id) REFERENCES label (id)
+);
+create table user(
+       id bigint not null AUTO_INCREMENT,
+       user_name varchar(32),
+       nick_name tinytext not null,
+       email varchar(100) not null,
+       website text,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
+       PRIMARY KEY (id)
 )
 select * from article;
 select * from album_photo;

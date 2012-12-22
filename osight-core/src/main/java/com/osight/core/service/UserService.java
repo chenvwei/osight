@@ -11,4 +11,6 @@ import com.osight.core.pojos.UserData;
  */
 public interface UserService {
     UserData getUserData(String id);
+    UserData createUser(String nickName,String email);
+    UserData getUserByEmail(String email);
 }
