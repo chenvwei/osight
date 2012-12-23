@@ -43,4 +43,7 @@
 	<definition name="article.view" extends="article">
 		<put-attribute name="main" value="/article/view.jsp"></put-attribute>
 	</definition>
+	<definition name="article.edit" extends="article">
+		<put-attribute name="main" value="/article/edit.jsp"></put-attribute>
+	</definition>
 </tiles-definitions>

@@ -51,8 +51,7 @@ public class ArticleAction extends BasicSupportAction {
 		} else {
 			article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
 		}
-		log.info(ToStringBuilder.reflectionToString(article, ToStringStyle.MULTI_LINE_STYLE));
-		return list();
+		return "view";
 	}
 
 	public ArticleService getArticleService() {

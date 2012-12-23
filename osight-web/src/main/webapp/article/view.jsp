@@ -17,7 +17,7 @@
 					value="article.pv" /></span>
 					
 					<span class="comments">
-					<s:a href="/article/edit.action?id=%{id}">修改
+					<s:a href="/article/edit/%{id}">修改
 					</s:a></span>
 		</div>
 		<div class="content">

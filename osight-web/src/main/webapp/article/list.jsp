@@ -3,7 +3,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <div>
-	<s:a namespace="/article" action="article" method="add">撰写新日志</s:a>
+	<s:a namespace="/article" action="add">撰写新日志</s:a>
 </div>
 <s:if test="articleList==null">
 还没有撰写过日志！

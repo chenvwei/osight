@@ -13,6 +13,10 @@
         <from>/article/([0-9]+)\.html$</from>
         <to>/article/view.action?id=$1</to>
     </rule>
+    <rule>
+        <from>/article/edit/([0-9]+)$</from>
+        <to>/article/edit.action?id=$1</to>
+    </rule>
 
 
     <!--
