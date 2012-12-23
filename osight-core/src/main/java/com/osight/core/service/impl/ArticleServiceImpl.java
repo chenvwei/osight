@@ -50,8 +50,10 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 	@Override
 	public void increasePV(long id) {
 		ArticleData d = getArticleById(id);
-		d.setPv(d.getPv() + 1);
-		articleDao.saveOrUpate(d);
+		if (d != null) {
+			d.setPv(d.getPv() + 1);
+			articleDao.saveOrUpate(d);
+		}
 	}
 
 	@Override
