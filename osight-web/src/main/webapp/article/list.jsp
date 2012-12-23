@@ -12,7 +12,7 @@
 		<s:iterator value="articleList">
 			<div class="item">
 				<h2>
-					<s:a href="/article/view.action?id=%{id}">
+					<s:a href="/article/%{id}.html">
 						<s:property value="title" escapeHtml="true" />
 					</s:a>
 				</h2>

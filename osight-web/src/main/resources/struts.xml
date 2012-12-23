@@ -22,6 +22,9 @@
 		<action name="view" class="articleAction" method="view">
 			<result type="tiles" name="view">article.view</result>
 		</action>
+		<action name="list" class="articleAction" method="list">
+			<result type="tiles" name="list">article.list</result>
+		</action>
 		<action name="main">
 			<result type="tiles">article.add</result>
 		</action>

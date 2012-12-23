@@ -35,6 +35,12 @@
         <filter-name>InvokeInfoFilter</filter-name>
         <filter-class>com.osight.framework.web.filter.DefaultBindInvokeInfoFilter</filter-class>
 	</filter>
+	<filter>  
+        <filter-name>struts2-cleanup</filter-name>  
+        <filter-class>  
+            org.apache.struts2.dispatcher.ActionContextCleanUp  
+        </filter-class>  
+    </filter>  
 	<filter>
 		<filter-name>struts2</filter-name>
 		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
@@ -57,15 +63,19 @@
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
+	<filter-mapping>  
+        <filter-name>struts2-cleanup</filter-name>  
+        <url-pattern>/*</url-pattern>  
+        <dispatcher>REQUEST</dispatcher>    
+        <dispatcher>FORWARD</dispatcher>   
+    </filter-mapping> 
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
-		<url-pattern>*.action</url-pattern>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>    
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher> 
 	</filter-mapping>
-	<filter-mapping>
-		<filter-name>struts2</filter-name>
-		<url-pattern>*.jsp</url-pattern>
-	</filter-mapping>
-
 	<servlet>
 		<servlet-name>Upload</servlet-name>
 		<servlet-class>com.osight.web.servlet.Upload</servlet-class>
