@@ -15,9 +15,13 @@
 					escapeHtml="true" /></span> <span class="comments"><s:property
 					value="article.pv" /></span> <span class="comments"><s:property
 					value="article.pv" /></span>
+					
+					<span class="comments">
+					<s:a href="/article/edit.action?id=%{id}">修改
+					</s:a></span>
 		</div>
 		<div class="content">
-			<s:text name="article.content"></s:text>
+			<s:property value="article.content" escapeHtml="false"></s:property>
 		</div>
 		<div class="under"></div>
 	</div>

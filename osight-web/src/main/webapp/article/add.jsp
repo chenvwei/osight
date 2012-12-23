@@ -29,4 +29,5 @@
 			<td><s:submit name="method:save" value="保存"></s:submit></td>
 		</tr>
 	</table>
+	<s:hidden name="article.id"></s:hidden>
 </s:form>

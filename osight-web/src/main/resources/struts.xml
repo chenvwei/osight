@@ -25,6 +25,9 @@
 		<action name="list" class="articleAction" method="list">
 			<result type="tiles" name="list">article.list</result>
 		</action>
+		<action name="edit" class="articleAction" method="edit">
+			<result type="tiles" name="edit">article.add</result>
+		</action>
 		<action name="main">
 			<result type="tiles">article.add</result>
 		</action>

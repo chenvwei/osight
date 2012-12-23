@@ -26,7 +26,13 @@ public class ArticleAction extends BasicSupportAction {
 
 	public String view() {
 		article = articleService.getArticleById(id);
+		articleService.increasePV(id);
 		return "view";
+	}
+
+	public String edit() {
+		article = articleService.getArticleById(id);
+		return "edit";
 	}
 
 	public String list() {
@@ -39,8 +45,12 @@ public class ArticleAction extends BasicSupportAction {
 	}
 
 	public String save() {
-		article = articleService.newArticle(article.getUser().getNickName(), article.getUser().getEmail(),
-				article.getTitle(), article.getContent());
+		if (article.getId() == 0) {
+			article = articleService.newArticle(article.getUser().getNickName(), article.getUser().getEmail(),
+					article.getTitle(), article.getContent());
+		} else {
+			article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
+		}
 		log.info(ToStringBuilder.reflectionToString(article, ToStringStyle.MULTI_LINE_STYLE));
 		return list();
 	}

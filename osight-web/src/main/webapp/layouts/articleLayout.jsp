@@ -16,7 +16,14 @@
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/jquery-ui.js"></script>
 <script type="text/javascript" src="/ueditor/editor_config.js"></script>
+<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet" type="text/css" href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css"/>
 <script type="text/javascript" src="/ueditor/editor_all.js"></script>
+<script type="text/javascript">
+$(function(){
+	SyntaxHighlighter.highlight();
+})
+</script>
 <jsp:include page="/common/ga.jsp"></jsp:include>
 </head>
 <body>

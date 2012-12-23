@@ -7,7 +7,11 @@ import com.osight.core.pojos.ArticleData;
 public interface ArticleService {
 	ArticleData newArticle(String nickName, String email, String title, String content);
 
+	ArticleData updateArticle(long id, String title, String content);
+
 	ArticleData getArticleById(long id);
 
 	List<ArticleData> getAllArticles();
+
+	void increasePV(long id);
 }

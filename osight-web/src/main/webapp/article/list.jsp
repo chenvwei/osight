@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
 <div>
 	<s:a namespace="/article" action="article" method="add">撰写新日志</s:a>
 </div>
@@ -24,7 +25,7 @@
 							value="pv" /></span>
 				</div>
 				<div class="content">
-					<s:text name="content"></s:text>
+					<s:property value="content" escapeHtml="false"></s:property>
 				</div>
 				<div class="under"></div>
 			</div>

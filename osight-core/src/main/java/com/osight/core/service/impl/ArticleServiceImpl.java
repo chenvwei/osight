@@ -47,4 +47,22 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 		return articleDao.getAllArticles();
 	}
 
+	@Override
+	public void increasePV(long id) {
+		ArticleData d = getArticleById(id);
+		d.setPv(d.getPv() + 1);
+		articleDao.saveOrUpate(d);
+	}
+
+	@Override
+	public ArticleData updateArticle(long id, String title, String content) {
+		ArticleData data = getArticleById(id);
+		if (data != null) {
+			data.setTitle(title);
+			data.setContent(content);
+			articleDao.saveOrUpate(data);
+		}
+		return data;
+	}
+
 }
