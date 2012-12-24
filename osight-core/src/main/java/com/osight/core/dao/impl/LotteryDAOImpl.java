@@ -39,7 +39,6 @@ public class LotteryDAOImpl extends BaseHibernateDAO implements LotteryDAO {
         return data;
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public List<LotteryNumberData> getLotteryNumberByLotteryId(long lotteryId) {
         List<LotteryNumberData> list = hibernateUtil.find("select p from LotteryNumberData p where p.lotteryId=?",

@@ -108,7 +108,6 @@ public class DigestUtil {
     }
 
     public enum DigestMethodType {
-        // NONE, // 不加密
         MD5; // MD5加密
     }
 }

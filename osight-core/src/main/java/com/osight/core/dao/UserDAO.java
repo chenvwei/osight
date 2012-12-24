@@ -12,5 +12,6 @@ import com.osight.core.pojos.UserData;
 public interface UserDAO {
 	UserData saveOrUpdate(UserData user);
 	UserData getUserByEmail(String email);
+	UserData getUserByUserName(String userName);
     UserData getUserData(String id);
 }

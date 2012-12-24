@@ -40,4 +40,11 @@ public class UserDAOImpl extends BaseHibernateDAO implements UserDAO {
 		return list.isEmpty() ? null : list.get(0);
 	}
 
+    @Override
+    public UserData getUserByUserName(String userName) {
+        List<UserData> list = hibernateUtil.find("select p from UserData p where p.userName=?", new Object[] { userName },
+                new Type[] { StringType.INSTANCE });
+        return list.isEmpty() ? null : list.get(0);
+    }
+
 }

@@ -1,7 +1,7 @@
 /*
  * Created on 2012-12-21
  */
-package com.osight.framework.web.filter;
+package com.osight.core.filter;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -9,6 +9,11 @@ import java.net.UnknownHostException;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.osight.core.Constants;
+import com.osight.core.pojos.UserData;
+import com.osight.framework.web.filter.BindInvokeInfoFilter;
 
 /**
  * @author chenw
@@ -41,6 +46,12 @@ public class DefaultBindInvokeInfoFilter extends BindInvokeInfoFilter {
 
     @Override
     public String getUserId(HttpServletRequest request) {
-        return null;
+        HttpSession session = request.getSession();
+        UserData user = (UserData) (session.getAttribute(Constants.SESSION_USER));
+        if (user == null) {
+            return "Anonymous";
+        } else {
+            return String.valueOf(user.getId());
+        }
     }
 }

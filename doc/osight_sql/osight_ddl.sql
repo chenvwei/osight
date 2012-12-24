@@ -148,6 +148,9 @@ create table user(
        user_name varchar(32),
        nick_name tinytext not null,
        email varchar(100) not null,
+       password varchar(32),
+       status int not null default 0,
+       salt varchar(32),
        website text,
        CREATEDBY     VARCHAR(32), 
        UPDATEDBY     VARCHAR(32),
@@ -159,9 +162,12 @@ create table user(
        UPDATEDSERVER VARCHAR(50),
        PRIMARY KEY (id)
 )
+select * from user;
+update user set email='aaa@aaa.aa' where id=1;
+commit;
 select * from article;
 select * from album_photo;
-
+alter table user add(salt varchar(32));
 select now();
 insert into lottery(id,date,number,createdon) values(2,NOW(),'1234',null);
 select * from lottery;

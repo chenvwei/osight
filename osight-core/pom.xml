@@ -85,5 +85,10 @@
 			<artifactId>spring-orm</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 </project>

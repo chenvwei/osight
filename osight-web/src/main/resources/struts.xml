@@ -35,4 +35,10 @@
 			<result type="tiles" name="add">article.add</result>
 		</action>
 	</package>
+	<package name="user" namespace="/user" extends="tiles-default">
+		<action name="login" class="loginAction">
+			<result>/user/login.jsp</result>
+			<result name="input">/user/login.jsp</result>
+		</action>
+	</package>
 </struts>

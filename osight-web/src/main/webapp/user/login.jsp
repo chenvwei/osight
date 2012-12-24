@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -42,12 +43,17 @@
 </head>
 <body>
 <div class="container">
+<s:if test="#session.s_user!=null">
+	用户名：<s:property value="#session.s_user.nickName"/>[邮箱:<s:property value="#session.s_user.email"/>]
+</s:if>
+<s:else>
+<s:actionerror/>
 <section class="main">
-	<form class="form-2">
+	<form class="form-2" action="/user/login.action" method="post">
 		<h1><span class="log-in">登录</span> 或 <span class="sign-up">注册</span></h1>
 		<p class="float">
 			<label for="login"><i class="icon-user"></i>用户名</label>
-			<input type="text" name="login" placeholder="用户名或电子邮箱">
+			<input type="text" name="loginName" placeholder="用户名或电子邮箱">
 		</p>
 		<p class="float">
 			<label for="password"><i class="icon-lock"></i>密码</label>
@@ -55,10 +61,11 @@
 		</p>
 		<p class="clearfix"> 
 			<a href="#" class="log-twitter">微博账号登录</a>    
-			<input type="submit" name="submit" value="登录">
+			<input type="submit" value="登录">
 		</p>
 	</form>
 </section>
+</s:else>
 </div>
 </body>
 </html>
