@@ -22,6 +22,7 @@ public class UserLoginAction extends BasicSupportAction {
 
     private UserService userService;
     UserData user;
+    private String from;
 
     @Override
     public String execute() throws Exception {
@@ -70,7 +71,12 @@ public class UserLoginAction extends BasicSupportAction {
         this.password = password;
     }
 
-   
-    
-    
+	public String getFrom() {
+		return from;
+	}
+
+	public void setFrom(String from) {
+		this.from = from;
+	}
+
 }
