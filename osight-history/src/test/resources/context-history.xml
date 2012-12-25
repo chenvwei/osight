@@ -20,7 +20,7 @@
 			<ref local="dataSource" />
 		</property>
 		<property name="configLocation">
-			<value>hibernate-cfg.xml</value>
+			<value>hibernate-cfg-history.xml</value>
 		</property>
 		<property name="entityInterceptor">
 			<bean class="com.osight.framework.hibernate.AuditInterceptor" />

@@ -6,7 +6,7 @@
          class="org.springframework.context.support.ClassPathXmlApplicationContext">
      <constructor-arg>
        <list>
-         <value>context.xml</value>
+         <value>context-history.xml</value>
        </list>
      </constructor-arg>
    </bean>

@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import com.osight.framework.pojos.AuditableObject;
 import com.osight.history.annotation.HistoryProp;
+import com.osight.history.annotation.NoHistory;
 
 /**
  * @author chenw
@@ -33,6 +34,7 @@ public class TestPojo extends AuditableObject {
     @Column(name = "sec")
     private int sex;
     @Column(name = "email")
+    @NoHistory
     private String email;
 
     @Override

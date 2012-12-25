@@ -4,7 +4,7 @@
 	<bean id="locator" class="com.osight.framework.service.BeanLocator"
 		init-method="init">
 		<property name="beanFactoryLocatorKey" value="servicelayer-context-history" />
-		<property name="factoryLocatorSelector" value="beanRefContext.xml" />
+		<property name="factoryLocatorSelector" value="beanRefContext-history.xml" />
 		<property name="dbProviderName" value="dbProvider" />
 	</bean>
 

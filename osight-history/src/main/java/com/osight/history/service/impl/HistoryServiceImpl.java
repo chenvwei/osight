@@ -169,7 +169,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
             
             vo.getNames().add(verPo.getFieldName());
             vo.getNewValues().add(verPo.getNewValue());
-            vo.getOldValue().add(verPo.getOldValue());
+            vo.getOldValues().add(verPo.getOldValue());
         }
         
         return vo;
@@ -204,7 +204,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
             
             vo.getNames().add(verPo.getFieldName());
             vo.getNewValues().add(verPo.getNewValue());
-            vo.getOldValue().add(verPo.getOldValue());
+            vo.getOldValues().add(verPo.getOldValue());
         }
         
         Collections.sort(verDetails);
@@ -275,7 +275,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
     private void setOldProp(Object o, HistoryDetail insertValue) {
         for (int i = 0; i < insertValue.getNames().size(); i++) {
             String propName = insertValue.getNames().get(i);
-            String oldValue = insertValue.getOldValue().get(i);
+            String oldValue = insertValue.getOldValues().get(i);
             Object oldValueO = null;
             try {
                 Class<?> c = PropertyUtils.getPropertyType(o, propName);

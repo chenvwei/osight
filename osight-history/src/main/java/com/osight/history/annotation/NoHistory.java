@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
 @Retention(RUNTIME)
 @Target({ElementType.FIELD})
 public @interface NoHistory {
-    boolean isNoInsertVersion() default true;
-    boolean isNoUpdateVersion() default true;
-    boolean isNoDeleteVersion() default false;
+    boolean isNoInsertHistory() default true;
+    boolean isNoUpdateHistory() default true;
+    boolean isNoDeleteHistory() default false;
 }

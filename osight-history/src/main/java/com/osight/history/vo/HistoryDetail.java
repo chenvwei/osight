@@ -24,7 +24,7 @@ public class HistoryDetail implements Serializable, Comparable<HistoryDetail> {
     // 属性
     private List<String> names = new ArrayList<String>();
     private List<String> newValues = new ArrayList<String>();
-    private List<String> oldValue = new ArrayList<String>();
+    private List<String> oldValues = new ArrayList<String>();
 
     public String getLogBy() {
         return logBy;
@@ -74,15 +74,15 @@ public class HistoryDetail implements Serializable, Comparable<HistoryDetail> {
         this.newValues = newValues;
     }
 
-    public List<String> getOldValue() {
-        return oldValue;
-    }
+    public List<String> getOldValues() {
+		return oldValues;
+	}
 
-    public void setOldValue(List<String> oldValue) {
-        this.oldValue = oldValue;
-    }
+	public void setOldValues(List<String> oldValues) {
+		this.oldValues = oldValues;
+	}
 
-    public int compareTo(HistoryDetail o) {
+	public int compareTo(HistoryDetail o) {
         return this.logTime.compareTo(o.getLogTime());
     }
 
