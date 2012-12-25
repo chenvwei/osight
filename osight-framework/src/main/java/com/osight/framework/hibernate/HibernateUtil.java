@@ -133,7 +133,7 @@ public class HibernateUtil {
      * @param class1
      * @return
      */
-    public Object getObject(Serializable id, Class class1) {
+    public Object getObject(Serializable id, Class<?> class1) {
         try {
             return getSession().get(class1, id);
         } catch (HibernateException e) {
@@ -218,7 +218,7 @@ public class HibernateUtil {
      * @param maxResult
      * @return
      */
-    public List findUseSql(String sql, Object[] args, Type[] types, int firstResult, int maxResult) {
+    public <T> List<T> findUseSql(String sql, Object[] args, Type[] types, int firstResult, int maxResult) {
         try {
             SQLQuery q = getSession().createSQLQuery(sql);
             if (null != args && args.length > 0)
