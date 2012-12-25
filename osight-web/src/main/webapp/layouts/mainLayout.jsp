@@ -7,7 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/favicon.ico" type="image/x-icon" rel=icon> 
 <link rel="stylesheet" href="/css/default.css">
+<link type="text/css" rel="stylesheet" href="/css/default.css">
+<link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
 <title>云游四方工作室</title>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.js"></script>
 <jsp:include page="/common/ga.jsp"></jsp:include>
 </head>
 <body>

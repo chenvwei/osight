@@ -2,11 +2,6 @@ package com.osight.web.article.action;
 
 import java.util.List;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.service.ArticleService;
 import com.osight.framework.struts2.BasicSupportAction;
@@ -17,7 +12,6 @@ public class ArticleAction extends BasicSupportAction {
 	 * serialVersionUID
 	 */
 	private static final long	serialVersionUID	= 1L;
-	private Logger				log					= LoggerFactory.getLogger(getClass());
 
 	private ArticleService		articleService;
 	private ArticleData			article;
