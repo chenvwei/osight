@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,25 +20,24 @@ import com.osight.history.vo.HistoryDetail;
  * @version $Id$
  */
 public class HistoryServiceTest {
-    Logger log = LoggerFactory.getLogger(getClass());
+	Logger	log	= LoggerFactory.getLogger(getClass());
 
-    @Test
-    public void test() {
+	@Test
+	public void test() {
+	}
 
-    }
-
-    @Test
-    public void testNew() {
-        TestPojoService testService = TestServiceFactory.getService();
-        TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
-        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
-        data = testService.updateEmail(data.getId(), "chenvvwei@163.com");
-        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
-        HistoryService history = HistoryServiceFactory.getHistoryService();
-        List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
-        log.info("size:" + list.size());
-        for (HistoryDetail obj : list) {
-            log.info(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
-        }
-    }
+	@Test
+	public void testNew() {
+		TestPojoService testService = TestServiceFactory.getService();
+		TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
+		log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+		data = testService.updateEmail(data.getId(), "chenvvwei@163.com");
+		log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+		HistoryService history = HistoryServiceFactory.getHistoryService();
+		List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
+		Assert.assertEquals(list.size(), 1);
+		for (HistoryDetail obj : list) {
+			log.info(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
+		}
+	}
 }

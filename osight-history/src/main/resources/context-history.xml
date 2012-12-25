@@ -14,7 +14,7 @@
 			<ref local="dataSource" />
 		</property>
 		<property name="configLocation">
-			<value>hibernate-cfg.xml</value>
+			<value>hibernate-cfg-history.xml</value>
 		</property>
 		<property name="entityInterceptor">
 			<bean class="com.osight.framework.hibernate.AuditInterceptor" />
@@ -28,27 +28,6 @@
 			</props>
 		</property>
 	</bean>
-	<!-- history start -->
-	<bean id="hibernateEventWrapper" class="com.osight.framework.hibernate.HibernateEventWrapper">
-    	 <constructor-arg>
-            <ref local="sessionFactory"/>
-        </constructor-arg>
-        <property name="flushEvenetListener"><ref local="flushEventListener"/></property>
-        <property name="postUpdateEvenetListener"><ref local="historyEventListener"/></property>
-        <property name="postInsertEvenetListener"><ref local="historyEventListener"/></property>
-        <property name="postDeleteEvenetListener"><ref local="historyEventListener"/></property>
- 	</bean>
- 	<bean id="historyEventListener" class="com.osight.history.listener.HistoryEventListener">
-        <property name="historyService">
-            <ref local="historyService" />
-        </property>
-    </bean>
-    <bean id="flushEventListener" class="com.osight.history.listener.VersionIdFlushEventListener">
-    </bean>
-    <bean id="historyService" class="com.osight.history.service.HistoryServiceFactory" factory-method="getHistoryService"></bean>
-    
-	<!-- history end  -->
-	
 	<bean id="daoInvocationHander" class="java.lang.String">
 		<constructor-arg>
 			<value>com.osight.framework.hibernate.HibernateDAOInvocationHandler</value>
@@ -68,13 +47,7 @@
 		</property>
 	</bean>
 
-	<bean id="userDAO" class="com.osight.core.dao.impl.UserDAOImpl"
-		parent="parentDAO" />
-	<bean id="lotteryDAO" class="com.osight.core.dao.impl.LotteryDAOImpl"
-		parent="parentDAO" />
-	<bean id="albumDAO" class="com.osight.core.dao.impl.AlbumDAOImpl"
-		parent="parentDAO" />
-	<bean id="articleDAO" class="com.osight.core.dao.impl.ArticleDAOImpl"
+	<bean id="historyDAO" class="com.osight.history.dao.hibernate.HistoryDAOImpl"
 		parent="parentDAO" />
 
 </beans>

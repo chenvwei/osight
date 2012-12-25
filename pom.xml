@@ -9,6 +9,7 @@
 	<name>rodneytt osight's website</name>
 	<modules>
 		<module>osight-framework</module>
+		<module>osight-history</module>
 		<module>osight-core</module>
 		<module>osight-web</module>
 		<module>application</module>
@@ -71,6 +72,11 @@
 			<dependency>
 				<groupId>com.osight</groupId>
 				<artifactId>osight-framework</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.osight</groupId>
+				<artifactId>osight-history</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>

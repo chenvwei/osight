@@ -10,9 +10,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.osight.framework.pojos.AuditableObject;
+import com.osight.history.annotation.HistoryProp;
+import com.osight.history.annotation.NoHistory;
 
 @Entity
 @Table(name = "article")
+@HistoryProp
 public class ArticleData extends AuditableObject {
 
 	/**
@@ -36,6 +39,7 @@ public class ArticleData extends AuditableObject {
 	private String				content;
 
 	@Column(name = "pv")
+	@NoHistory
 	private long				pv;
 
 	@Override

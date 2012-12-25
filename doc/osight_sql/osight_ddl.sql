@@ -162,6 +162,24 @@ create table user(
        UPDATEDSERVER VARCHAR(50),
        PRIMARY KEY (id)
 )
+--历史
+create table history_info (
+        ID bigint not null AUTO_INCREMENT,
+        FNAME varchar(32),
+        LOGBY varchar(32),
+        LOGTIME timestamp,
+        LOGUSERIP varchar(32),
+        NV text,
+        OV text,
+        OPTYPE varchar(32),
+        PKEY bigint,
+        TNAME varchar(255),
+        TRANSACTIONID varchar(32),
+        VERINFO varchar(32),
+        primary key (ID)
+    )
+    
+select * from history_info;
 select * from user;
 update user set email='aaa@aaa.aa' where id=1;
 commit;

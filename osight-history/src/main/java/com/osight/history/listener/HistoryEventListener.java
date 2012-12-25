@@ -23,6 +23,7 @@ import org.slf4j.LoggerFactory;
 
 import com.osight.framework.hibernate.ThreadLocalManager;
 import com.osight.framework.invoke.InvokeInfoHelper;
+import com.osight.framework.pojos.AuditableObject;
 import com.osight.framework.pojos.PersistentObject;
 import com.osight.framework.service.IService;
 import com.osight.framework.transaction.TransactionIdHelper;
@@ -195,6 +196,12 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
 						((Calendar) oldValueO).setLenient(true);
 						((Calendar) newValueO).setLenient(true);
 					}
+					if (oldValueO instanceof PersistentObject) {
+						oldValueO = ((PersistentObject) oldValueO).getId();
+					}
+					if (newValueO instanceof PersistentObject) {
+						newValueO = ((PersistentObject) newValueO).getId();
+					}
 					oldValueEqualNewValue = newValueO.equals(oldValueO);
 				}
 
@@ -300,7 +307,9 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
 		if (fld == null) {
 			throw new RuntimeException(new NoSuchFieldException(propName));
 		}
-
+		if (fld.getDeclaringClass() == AuditableObject.class) {
+			return false;
+		}
 		Class<NoHistory> verClass = NoHistory.class;
 		NoHistory ver = (NoHistory) fld.getAnnotation(verClass);
 		if (null == ver) {

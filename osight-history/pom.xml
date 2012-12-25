@@ -7,17 +7,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>com.osight</groupId>
-	<artifactId>osight-core</artifactId>
+	<artifactId>osight-history</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>rodneytt osight's core</name>
+	<name>rodneytt osight's history</name>
 	<dependencies>
 		<dependency>
 			<groupId>com.osight</groupId>
 			<artifactId>osight-framework</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.osight</groupId>
-			<artifactId>osight-history</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -55,11 +51,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.aliyun.openservices</groupId>
-			<artifactId>aliyun-openservices</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<optional>true</optional>
@@ -82,11 +73,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
 			<optional>true</optional>
 		</dependency>
 	</dependencies>

@@ -19,6 +19,10 @@
 		</dependency>
 		<dependency>
 			<groupId>com.osight</groupId>
+			<artifactId>osight-history</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.osight</groupId>
 			<artifactId>osight-core</artifactId>
 		</dependency>
 		<dependency>

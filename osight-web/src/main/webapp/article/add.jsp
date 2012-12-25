@@ -8,7 +8,7 @@
 	})
 //-->
 </script>
-<s:form action="/article/save.action" theme="simple">
+<s:form action="save" namespace="/article" theme="simple">
 	<table>
 		<tr>
 			<td>昵称：</td>

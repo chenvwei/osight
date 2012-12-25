@@ -17,6 +17,7 @@ import com.osight.core.Constants;
 import com.osight.framework.pojos.AuditableObject;
 import com.osight.framework.util.DigestUtil;
 import com.osight.framework.util.UUIDUtil;
+import com.osight.history.annotation.HistoryProp;
 
 /**
  * @author chenw
@@ -24,6 +25,7 @@ import com.osight.framework.util.UUIDUtil;
  */
 @Entity
 @Table(name = "user")
+@HistoryProp
 public class UserData extends AuditableObject {
 
     /**
