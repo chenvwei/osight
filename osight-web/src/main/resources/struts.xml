@@ -20,10 +20,23 @@
 		</action>
 	</package>
 	<package name="article" namespace="/article" extends="tiles-default">
+		<interceptors>
+			<interceptor name="loginInterceptor" class="com.osight.web.interceptor.LoginInterceptor" />
+			<interceptor-stack name="articleStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="loginInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="articleStack"></default-interceptor-ref>
+		<global-results>
+			<result name="login">/user/login.jsp</result>
+		</global-results>
 		<action name="view" class="articleAction" method="view">
+			<param name="needLogin">false</param>
 			<result type="tiles" name="view">article.view</result>
 		</action>
 		<action name="list" class="articleAction" method="list">
+			<param name="needLogin">false</param>
 			<result type="tiles" name="list">article.list</result>
 		</action>
 		<action name="edit" class="articleAction" method="edit">

@@ -2,8 +2,12 @@ package com.osight.web.article.action;
 
 import java.util.List;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.osight.core.pojos.ArticleData;
+import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
+import com.osight.core.util.WebAppUtil;
 import com.osight.framework.struts2.BasicSupportAction;
 
 public class ArticleAction extends BasicSupportAction {
@@ -40,8 +44,8 @@ public class ArticleAction extends BasicSupportAction {
 
 	public String save() {
 		if (article.getId() == 0) {
-			article = articleService.newArticle(article.getUser().getNickName(), article.getUser().getEmail(),
-					article.getTitle(), article.getContent());
+			UserData user = WebAppUtil.getLoginUser(ServletActionContext.getRequest());
+			article = articleService.newArticle(user, article.getTitle(), article.getContent());
 		} else {
 			article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
 		}

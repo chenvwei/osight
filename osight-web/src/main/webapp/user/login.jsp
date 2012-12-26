@@ -55,6 +55,14 @@
 <body>
 <div class="container">
 <section class="main">
+<s:if test="#tip!=null">
+<div class="ui-widget" style="width:340px;margin: 20px auto -20px">
+  <div class="ui-state-highlight ui-corner-all">
+    <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: .3em;"></span>
+    <strong>提示:</strong><s:property value="#tip"/></p>
+  </div>
+</div>
+</s:if>
 <s:if test="errorMessages!=null">
 <div  style="width:340px;margin: 20px auto -20px">
 <s:iterator value="errorMessages" var="msg">

@@ -6,16 +6,13 @@ import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
-import com.osight.core.service.UserService;
 import com.osight.framework.service.BaseDbService;
 
 public class ArticleServiceImpl extends BaseDbService implements ArticleService {
 	private ArticleDAO	articleDao;
-	private UserService	userService;
 
 	@Override
-	public ArticleData newArticle(String nickName, String email, String title, String content) {
-		UserData user = userService.createUser(nickName, email);
+	public ArticleData newArticle(UserData user, String title, String content) {
 		ArticleData article = new ArticleData();
 		article.setUser(user);
 		article.setTitle(title);
@@ -36,10 +33,6 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 
 	@Override
 	protected void doRemove() {
-	}
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
 	}
 
 	@Override

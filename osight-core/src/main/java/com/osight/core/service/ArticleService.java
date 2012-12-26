@@ -3,9 +3,10 @@ package com.osight.core.service;
 import java.util.List;
 
 import com.osight.core.pojos.ArticleData;
+import com.osight.core.pojos.UserData;
 
 public interface ArticleService {
-	ArticleData newArticle(String nickName, String email, String title, String content);
+	ArticleData newArticle(UserData user, String title, String content);
 
 	ArticleData updateArticle(long id, String title, String content);
 

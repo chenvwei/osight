@@ -11,16 +11,8 @@
 <s:form action="save" namespace="/article" theme="simple">
 	<table>
 		<tr>
-			<td>昵称：</td>
-			<td><s:textfield name="article.user.nickName"></s:textfield></td>
-		</tr>
-		<tr>
-			<td>电子邮件:</td>
-			<td><s:textfield name="article.user.email"></s:textfield>
-		</tr>
-		<tr>
 			<td>标题:</td>
-			<td><s:textfield name="article.title"></s:textfield></td>
+			<td><s:textfield placeholder="请输入博客标题" name="article.title" cssClass="title"></s:textfield></td>
 		</tr>
 		<tr>
 			<td colspan="2"><s:textarea name="article.content" id="content"></s:textarea></td>
