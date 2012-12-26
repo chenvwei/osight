@@ -8,6 +8,8 @@ package com.osight.framework.exception;
  * @version $Id$
  */
 public class DAOException extends RuntimeException {
+    private static final long serialVersionUID = 1L;
+
     public DAOException() {
         super();
     }

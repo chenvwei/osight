@@ -5,6 +5,7 @@ package com.osight.framework.hibernate;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.hibernate.HibernateException;
 import org.hibernate.ObjectNotFoundException;
@@ -22,10 +23,13 @@ import com.osight.framework.exception.DAOException;
 import com.osight.framework.pojos.PersistentObject;
 
 /**
- * @author chenw 
+ * @author chenw
  * @version $Id$
  */
 public class HibernateUtil {
+    private static final String PARAMNAME = "ARG";
+    private static final String REGX = "(?!:" + PARAMNAME + ")[?:](\\w){0,}";
+    private static final Pattern PATTERN = Pattern.compile(".*" + REGX + ".*");
     SessionFactory sessionFactory = null;
     Logger log = LoggerFactory.getLogger(getClass());
 
@@ -51,15 +55,10 @@ public class HibernateUtil {
             } else {
                 if (!getSession().contains(obj)) {
                     try {
-                        // Object has been written to database, but instance
-                        // passed in
-                        // is not a persistent instance, so must be loaded into
-                        // session.
                         PersistentObject vo = (PersistentObject) getSession().load(obj.getClass(), obj.getId());
                         vo.setData(obj);
                         obj = vo;
                     } catch (ObjectNotFoundException e) {
-                        // ID 可能是自己赋值的，save
                         getSession().save(obj);
                     }
                 }
@@ -71,10 +70,7 @@ public class HibernateUtil {
 
     public void update(PersistentObject obj) {
         try {
-            // I tried using getSession().update() here, but it did not work.
             if (!getSession().contains(obj)) {
-                // Object has been written to database, but instance passed in
-                // is not a persistent instance, so must be loaded into session.
                 PersistentObject vo = (PersistentObject) getSession().load(obj.getClass(), obj.getId());
                 vo.setData(obj);
                 obj = vo;
@@ -141,11 +137,19 @@ public class HibernateUtil {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public <T> List<T> find(String sql, Object[] args, Type[] types) {
         try {
+            int i = 0;
+            while (PATTERN.matcher(sql).matches()) {
+                sql = sql.replaceFirst(REGX, ":" + PARAMNAME + i++);
+            }
             Query q = getSession().createQuery(sql);
-            if (null != args && args.length > 0)
-                q.setParameters(args, types);
+            if (null != args && args.length > 0) {
+                for (i = 0; i < args.length; i++) {
+                    q.setParameter(PARAMNAME + i, args[i], types[i]);
+                }
+            }
             return q.list();
         } catch (HibernateException e) {
             throw new DAOException(e);
@@ -162,11 +166,19 @@ public class HibernateUtil {
      * @param maxResult
      * @return
      */
+    @SuppressWarnings("unchecked")
     public <T> List<T> find(String hql, Object[] args, Type[] types, int firstResult, int maxResult) {
         try {
+            int i = 0;
+            while (PATTERN.matcher(hql).matches()) {
+                hql = hql.replaceFirst(REGX, ":" + PARAMNAME + i++);
+            }
             Query q = getSession().createQuery(hql);
-            if (null != args && args.length > 0)
-                q.setParameters(args, types);
+            if (null != args && args.length > 0) {
+                for (i = 0; i < args.length; i++) {
+                    q.setParameter(PARAMNAME + i, args[i], types[i]);
+                }
+            }
             q.setFirstResult(firstResult);
             q.setMaxResults(maxResult);
             return q.list();
@@ -183,6 +195,7 @@ public class HibernateUtil {
      * @param types
      * @return
      */
+    @SuppressWarnings("unchecked")
     public long getCount(String hql, Object[] args, Type[] types) {
         try {
             int index = hql.indexOf("from");
@@ -195,17 +208,12 @@ public class HibernateUtil {
             Query q = getSession().createQuery(hql);
             if (null != args && args.length > 0)
                 q.setParameters(args, types);
-            List list = q.list();
+            List<Number> list = q.list();
             long count = list.size() > 0 ? ((Number) list.get(0)).longValue() : 0;
             return count;
         } catch (HibernateException e) {
             throw new DAOException(e);
         }
-    }
-
-    public long getCount(List l) {
-        long count = l.size() > 0 ? ((Number) l.get(0)).longValue() : 0;
-        return count;
     }
 
     /**
@@ -218,6 +226,7 @@ public class HibernateUtil {
      * @param maxResult
      * @return
      */
+    @SuppressWarnings("unchecked")
     public <T> List<T> findUseSql(String sql, Object[] args, Type[] types, int firstResult, int maxResult) {
         try {
             SQLQuery q = getSession().createSQLQuery(sql);
@@ -239,6 +248,7 @@ public class HibernateUtil {
      * @param types
      * @return
      */
+    @SuppressWarnings("unchecked")
     public long getCountUseSql(String sql, Object[] args, Type[] types) {
         try {
             int index = sql.indexOf("from");
@@ -251,7 +261,7 @@ public class HibernateUtil {
             SQLQuery q = getSession().createSQLQuery(sql);
             if (null != args && args.length > 0)
                 q.setParameters(args, types);
-            List list = q.list();
+            List<Number> list = q.list();
             long count = list.size() > 0 ? ((Number) list.get(0)).longValue() : 0;
             return count;
         } catch (HibernateException e) {
@@ -259,6 +269,7 @@ public class HibernateUtil {
         }
     }
 
+    @SuppressWarnings("unchecked")
     public <T> List<T> find(String sql) {
         try {
             Query q = getSession().createQuery(sql);
@@ -270,8 +281,16 @@ public class HibernateUtil {
 
     public int delete(String sql, Object[] args, Type[] types) {
         try {
+            int i = 0;
+            while (PATTERN.matcher(sql).matches()) {
+                sql = sql.replaceFirst(REGX, ":" + PARAMNAME + i++);
+            }
             Query q = getSession().createQuery(sql);
-            q.setParameters(args, types);
+            if (null != args && args.length > 0) {
+                for (i = 0; i < args.length; i++) {
+                    q.setParameter(PARAMNAME + i, args[i], types[i]);
+                }
+            }
             return q.executeUpdate();
         } catch (HibernateException e) {
             throw new DAOException(e);
@@ -282,10 +301,6 @@ public class HibernateUtil {
         try {
             if (!getSession().contains(obj)) {
                 try {
-                    // Object has been written to database, but instance passed
-                    // in
-                    // is not a persistent instance, so must be loaded into
-                    // session.
                     PersistentObject vo = (PersistentObject) getSession().get(obj.getClass(),
                             ((PersistentObject) obj).getId());
                     if (null != vo) {

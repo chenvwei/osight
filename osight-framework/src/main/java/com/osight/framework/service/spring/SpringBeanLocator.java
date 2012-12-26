@@ -32,7 +32,7 @@ public class SpringBeanLocator {
         }
         return l;
     }
-
+    @SuppressWarnings("unchecked")
     public <T> T getBean(String beanName) {
         Object bean = beanFac.getBean(beanName);
         try {

@@ -25,6 +25,6 @@ public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
 
 	@Override
 	public List<ArticleData> getAllArticles() {
-		return hibernateUtil.find("select p from ArticleData p");
+		return hibernateUtil.find("select p from ArticleData p order by p.createdOn desc");
 	}
 }
