@@ -53,7 +53,9 @@ img.right {
 	float: right;
 	margin: 0 0 0 20px;
 }
-
+.page{
+	text-align: center;
+}
 /* Header */
 .container {
 	background: #fff url(/images/img01.jpg) repeat-x left top;

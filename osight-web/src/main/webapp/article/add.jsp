@@ -18,7 +18,7 @@
 			<td colspan="2"><s:textarea name="article.content" id="content"></s:textarea></td>
 		</tr>
 		<tr>
-			<td><s:submit value="保存"></s:submit></td>
+			<td><s:submit value="保存" cssClass="button ui-button-success"></s:submit></td>
 		</tr>
 	</table>
 </s:form>

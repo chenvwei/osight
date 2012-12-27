@@ -18,6 +18,7 @@
 		<put-attribute name="bottom" value="/common/footer.jsp" />
 	</definition>
 	<definition name="article" template="/layouts/articleLayout.jsp">
+		<put-attribute name="title" value="云游四方工作室"/>
 		<put-attribute name="top" value="/common/header.jsp" />
 		<put-attribute name="menu" value="/common/menu.jsp" />
 		<put-attribute name="bottom" value="/common/footer.jsp" />
@@ -35,15 +36,19 @@
 	</definition>
 	<!-- 博客 -->
 	<definition name="article.list" extends="article">
+		<put-attribute name="title" value="列表"/>
 		<put-attribute name="main" value="/article/list.jsp"></put-attribute>
 	</definition>
 	<definition name="article.add" extends="article">
+		<put-attribute name="title" value="添加日志"/>
 		<put-attribute name="main" value="/article/add.jsp"></put-attribute>
 	</definition>
 	<definition name="article.view" extends="article">
+		<put-attribute name="title" value="查看"/>
 		<put-attribute name="main" value="/article/view.jsp"></put-attribute>
 	</definition>
 	<definition name="article.edit" extends="article">
+		<put-attribute name="title" value="修改日志"/>
 		<put-attribute name="main" value="/article/edit.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>

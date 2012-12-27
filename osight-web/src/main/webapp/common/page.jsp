@@ -15,6 +15,7 @@
     ValueStack vs = (ValueStack)request.getAttribute("struts.valueStack");
     Page<?> pageRs = (Page<?>)vs.findValue("page");
 %>
+<div class="page">
 <s:if test="page.previousPageAvailable">
 	<%
 	    StringBuffer firstURL = new StringBuffer();
@@ -43,3 +44,4 @@
 	<a href='<%=nextURL%>' style='color: #06C;'>下一页 &gt;&gt;</a>
 	<a href='<%=lastURL%>' style='color: #06C;'>最后一页</a>
 </s:if>
+</div>

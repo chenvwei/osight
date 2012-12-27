@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>博客</title>
-<link href="/favicon.ico" type="image/x-icon" rel=icon> 
+<title>博客-<tiles:getAsString name="title" />
+	<s:if test="article!=null">
+-<s:property value="article.title" />
+	</s:if>
+</title>
+<link href="/favicon.ico" type="image/x-icon" rel=icon>
 <link type="text/css" rel="stylesheet" href="/css/default.css">
 <link type="text/css" rel="stylesheet" href="/css/article.css">
 <link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
@@ -16,13 +21,15 @@
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/jquery-ui.js"></script>
 <script type="text/javascript" src="/ueditor/editor_config.js"></script>
-<script type="text/javascript" charset="utf-8" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
-<link rel="stylesheet" type="text/css" href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css"/>
+<script type="text/javascript" charset="utf-8"
+	src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
 <script type="text/javascript" src="/ueditor/editor_all.js"></script>
 <script type="text/javascript">
-$(function(){
-	SyntaxHighlighter.highlight();
-})
+	$(function() {
+		SyntaxHighlighter.highlight();
+	})
 </script>
 <jsp:include page="/common/ga.jsp"></jsp:include>
 </head>
