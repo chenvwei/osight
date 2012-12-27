@@ -1,87 +1,91 @@
 package com.osight.web.article.action;
 
-import java.util.List;
-
 import org.apache.struts2.ServletActionContext;
 
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
 import com.osight.core.util.WebAppUtil;
+import com.osight.framework.page.Page;
 import com.osight.framework.struts2.BasicSupportAction;
 
 public class ArticleAction extends BasicSupportAction {
 
-	/**
-	 * serialVersionUID
-	 */
-	private static final long	serialVersionUID	= 1L;
+    /**
+     * serialVersionUID
+     */
+    private static final long serialVersionUID = 1L;
+    private static final int pageCount = 5;
+    private ArticleService articleService;
+    private ArticleData article;
+    private long id;
+    private int start;
+    private Page<ArticleData> page;
 
-	private ArticleService		articleService;
-	private ArticleData			article;
-	private List<ArticleData>	articleList;
-	private long				id;
+    public String view() {
+        article = articleService.getArticleById(id);
+        articleService.increasePV(id);
+        return "view";
+    }
 
-	public String view() {
-		article = articleService.getArticleById(id);
-		articleService.increasePV(id);
-		return "view";
-	}
+    public String edit() {
+        article = articleService.getArticleById(id);
+        return "edit";
+    }
 
-	public String edit() {
-		article = articleService.getArticleById(id);
-		return "edit";
-	}
+    public String list() {
+        page = articleService.getArticles(start, pageCount);
+        return "list";
+    }
 
-	public String list() {
-		articleList = articleService.getAllArticles();
-		return "list";
-	}
+    public String add() {
+        return "add";
+    }
 
-	public String add() {
-		return "add";
-	}
+    public String save() {
+        if (article.getId() == 0) {
+            UserData user = WebAppUtil.getLoginUser(ServletActionContext.getRequest());
+            article = articleService.newArticle(user, article.getTitle(), article.getContent());
+        } else {
+            article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
+        }
+        return "view";
+    }
 
-	public String save() {
-		if (article.getId() == 0) {
-			UserData user = WebAppUtil.getLoginUser(ServletActionContext.getRequest());
-			article = articleService.newArticle(user, article.getTitle(), article.getContent());
-		} else {
-			article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
-		}
-		return "view";
-	}
+    public ArticleService getArticleService() {
+        return articleService;
+    }
 
-	public ArticleService getArticleService() {
-		return articleService;
-	}
+    public void setArticleService(ArticleService articleService) {
+        this.articleService = articleService;
+    }
 
-	public void setArticleService(ArticleService articleService) {
-		this.articleService = articleService;
-	}
+    public ArticleData getArticle() {
+        return article;
+    }
 
-	public ArticleData getArticle() {
-		return article;
-	}
+    public void setArticle(ArticleData article) {
+        this.article = article;
+    }
 
-	public void setArticle(ArticleData article) {
-		this.article = article;
-	}
+    public int getStart() {
+        return start;
+    }
 
-	public List<ArticleData> getArticleList() {
-		return articleList;
-	}
+    public void setStart(int start) {
+        this.start = start;
+    }
 
-	public void setArticleList(List<ArticleData> articleList) {
-		this.articleList = articleList;
-	}
+    public Page<ArticleData> getPage() {
+        return page;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
 }

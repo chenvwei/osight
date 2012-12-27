@@ -5,12 +5,12 @@
 <div>
 	<s:a namespace="/article" action="add" cssClass="button ui-button-success">撰写新日志</s:a>
 </div>
-<s:if test="articleList==null">
+<s:if test="page.list==null">
 还没有撰写过日志！
 </s:if>
 <s:else>
 	<div>
-		<s:iterator value="articleList">
+		<s:iterator value="page.list">
 			<div class="item">
 				<h2>
 					<s:a href="/article/%{id}.html">
@@ -33,5 +33,6 @@
 				<div class="under"></div>
 			</div>
 		</s:iterator>
+		<jsp:include page="/common/page.jsp"></jsp:include>
 	</div>
 </s:else>
