@@ -17,8 +17,7 @@
 					value="article.pv" /></span>
 					
 					<span class="comments">
-					<s:a href="/article/edit/%{id}">修改
-					</s:a></span>
+					<s:a href="/article/edit/%{id}">修改</s:a> <s:a href="/article/delete/%{id}" onclick="return confirm('确认要删除吗？')">删除</s:a></span>
 		</div>
 		<div class="content">
 			<s:property value="article.content" escapeHtml="false"></s:property>

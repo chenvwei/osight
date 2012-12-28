@@ -42,6 +42,9 @@
 		<action name="edit" class="articleAction" method="edit">
 			<result type="tiles" name="edit">article.edit</result>
 		</action>
+		<action name="delete" class="articleAction" method="delete">
+			<result type="redirect" name="list">/article/</result>
+		</action>
 		<action name="save" class="articleAction" method="save">
 			<result type="redirect" name="view">/article/${article.id}.html</result>
 		</action>

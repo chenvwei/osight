@@ -13,4 +13,6 @@ public interface TestPojoDAO {
     TestPojo saveOrUpdate(TestPojo data);
 
     TestPojo getTestPojoById(long id);
+    
+    void delete(long id);
 }

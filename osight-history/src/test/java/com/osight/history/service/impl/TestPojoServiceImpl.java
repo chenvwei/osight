@@ -41,4 +41,9 @@ public class TestPojoServiceImpl extends BaseDbService implements TestPojoServic
     protected void doRemove() {
     }
 
+    @Override
+    public void delete(long id) {
+        dao.delete(id);
+    }
+
 }

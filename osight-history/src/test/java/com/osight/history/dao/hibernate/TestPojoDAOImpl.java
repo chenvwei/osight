@@ -27,4 +27,11 @@ public class TestPojoDAOImpl extends BaseHibernateDAO implements TestPojoDAO {
         return (TestPojo) hibernateUtil.getObject(id, TestPojo.class);
     }
 
+    @Override
+    public void delete(long id) {
+        TestPojo data = getTestPojoById(id);
+        hibernateUtil.delete(data);
+//        hibernateUtil.delete("delete TestPojo p where p.id=?", new Object[] {id}, new Type[] {LongType.INSTANCE});
+    }
+
 }

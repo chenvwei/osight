@@ -13,4 +13,6 @@ public interface TestPojoService {
     TestPojo newPojo(String name, String password, int sex, String email);
 
     TestPojo updateEmail(long id, String email);
+    
+    void delete(long id);
 }

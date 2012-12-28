@@ -18,10 +18,17 @@
         <to>/article/edit.action?id=$1</to>
     </rule>
     <rule>
+        <from>/article/delete/([0-9]+)$</from>
+        <to>/article/delete.action?id=$1</to>
+    </rule>
+    <rule>
         <from>/article/page/([0-9]+)$</from>
         <to>/article/list.action?pageNum=$1</to>
     </rule>
-
+	<rule>
+        <from>/article/new$</from>
+        <to>/article/add.action</to>
+    </rule>
 
     <!--
 

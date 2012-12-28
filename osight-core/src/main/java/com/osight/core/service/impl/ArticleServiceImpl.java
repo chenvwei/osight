@@ -66,4 +66,12 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
         return articleDao.getArticles(start, count);
     }
 
+    @Override
+    public void deleteArticleById(long id) {
+        ArticleData art = getArticleById(id);
+        if (art != null) {
+            articleDao.delete(art);
+        }
+    }
+
 }

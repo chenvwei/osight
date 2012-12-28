@@ -17,5 +17,7 @@ public interface ArticleService {
 
     Page<ArticleData> getArticles(int start, int count);
 
+    void deleteArticleById(long id);
+
     void increasePV(long id);
 }

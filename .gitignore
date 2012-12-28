@@ -12,6 +12,7 @@ target/
 *.bak
 *.swp
 *~.nib
+*.bat
 local.properties
 .settings/
 .loadpath

@@ -11,6 +11,8 @@ public interface ArticleDAO {
     ArticleData getArticleById(long id);
 
     List<ArticleData> getAllArticles();
+    
+    void delete(ArticleData data);
 
     Page<ArticleData> getArticles(int start, int count);
 }

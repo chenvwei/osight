@@ -6,10 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>博客-<tiles:getAsString name="title" />
-	<s:if test="article!=null">
--<s:property value="article.title" />
-	</s:if>
+<title>博客-<tiles:getAsString name="title" /><s:if test="article!=null">-<s:property value="article.title" /></s:if>
 </title>
 <link href="/favicon.ico" type="image/x-icon" rel=icon>
 <link type="text/css" rel="stylesheet" href="/css/default.css">

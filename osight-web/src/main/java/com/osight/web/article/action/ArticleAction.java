@@ -33,7 +33,15 @@ public class ArticleAction extends BasicSupportAction {
         return "edit";
     }
 
+    public String delete() {
+        articleService.deleteArticleById(id);
+        return "list";
+    }
+
     public String list() {
+        if (pageNum < 1) {
+            pageNum = 1;
+        }
         page = articleService.getArticles((pageNum - 1) * pageCount, pageCount);
         return "list";
     }
@@ -67,7 +75,6 @@ public class ArticleAction extends BasicSupportAction {
     public void setArticle(ArticleData article) {
         this.article = article;
     }
-
 
     public void setPageNum(int pageNum) {
         this.pageNum = pageNum;

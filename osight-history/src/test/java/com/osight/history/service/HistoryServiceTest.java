@@ -20,24 +20,34 @@ import com.osight.history.vo.HistoryDetail;
  * @version $Id$
  */
 public class HistoryServiceTest {
-	Logger	log	= LoggerFactory.getLogger(getClass());
+    Logger log = LoggerFactory.getLogger(getClass());
 
-	@Test
-	public void test() {
-	}
+    @Test
+    public void test() {
+    }
 
-	@Test
-	public void testNew() {
-		TestPojoService testService = TestServiceFactory.getService();
-		TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
-		log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
-		data = testService.updateEmail(data.getId(), "chenvvwei@163.com");
-		log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
-		HistoryService history = HistoryServiceFactory.getHistoryService();
-		List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
-		Assert.assertEquals(list.size(), 1);
-		for (HistoryDetail obj : list) {
-			log.info(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
-		}
-	}
+    @Test
+    public void testNew() {
+        TestPojoService testService = TestServiceFactory.getService();
+        TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
+        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+        data = testService.updateEmail(data.getId(), "chenvvwei@163.com");
+        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+        HistoryService history = HistoryServiceFactory.getHistoryService();
+        List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
+        Assert.assertEquals(list.size(), 1);
+        for (HistoryDetail obj : list) {
+            log.info(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
+        }
+    }
+
+    @Test
+    public void testDelete() {
+        TestPojoService testService = TestServiceFactory.getService();
+        TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
+        testService.delete(data.getId());
+        HistoryService history = HistoryServiceFactory.getHistoryService();
+        List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
+        Assert.assertEquals(list.size(), 1);
+    }
 }
