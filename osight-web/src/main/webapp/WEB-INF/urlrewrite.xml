@@ -29,6 +29,10 @@
         <from>/article/new$</from>
         <to>/article/add.action</to>
     </rule>
+    <rule>
+        <from>/article/category/([0-9]+)$</from>
+        <to>/article/listArticle.action?id=$1</to>
+    </rule>
 
     <!--
 

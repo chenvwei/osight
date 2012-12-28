@@ -19,6 +19,11 @@
 			<td><s:textfield name="article.title" cssClass="title"></s:textfield></td>
 		</tr>
 		<tr>
+			<td>类别:</td>
+			<td><s:select list="categorys" listKey="id" listValue="name" name="article.category.id"></s:select> 
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2"><s:textarea name="article.content" id="content"></s:textarea></td>
 		</tr>
 		<tr>

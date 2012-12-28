@@ -53,6 +53,10 @@
 		</action>
 		<action name="newCategory" class="articleCategoryAction" method="newCategory">
 		</action>
+		<action name="listArticle" class="articleCategoryAction" method="listArticle">
+			<param name="needLogin">false</param>
+			<result type="tiles" name="list">article.list</result>
+		</action>
 	</package>
 	<package name="user" namespace="/user" extends="tiles-default">
 		<action name="login" class="loginAction">

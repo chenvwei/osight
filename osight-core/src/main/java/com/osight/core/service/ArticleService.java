@@ -29,4 +29,6 @@ public interface ArticleService {
     List<ArticleCategoryData> getCategorys();
     
     ArticleCategoryData newCategory(String name);
+    
+    ArticleCategoryData getArticleCategoryById(long id);
 }

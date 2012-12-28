@@ -20,4 +20,6 @@ public interface ArticleDAO {
     List<ArticleCategoryData> getCategorys();
     
     ArticleCategoryData saveOrUpdate(ArticleCategoryData data);
+    
+    ArticleCategoryData getArticleCategoryById(long id);
 }
