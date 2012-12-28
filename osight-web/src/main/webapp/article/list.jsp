@@ -33,6 +33,6 @@
 				<div class="under"></div>
 			</div>
 		</s:iterator>
-		<jsp:include page="/common/page.jsp"></jsp:include>
+		<jsp:include page="page.jsp"></jsp:include>
 	</div>
 </s:else>

@@ -19,7 +19,7 @@ public class ArticleAction extends BasicSupportAction {
     private ArticleService articleService;
     private ArticleData article;
     private long id;
-    private int start;
+    private int pageNum;
     private Page<ArticleData> page;
 
     public String view() {
@@ -34,7 +34,7 @@ public class ArticleAction extends BasicSupportAction {
     }
 
     public String list() {
-        page = articleService.getArticles(start, pageCount);
+        page = articleService.getArticles((pageNum - 1) * pageCount, pageCount);
         return "list";
     }
 
@@ -68,12 +68,9 @@ public class ArticleAction extends BasicSupportAction {
         this.article = article;
     }
 
-    public int getStart() {
-        return start;
-    }
 
-    public void setStart(int start) {
-        this.start = start;
+    public void setPageNum(int pageNum) {
+        this.pageNum = pageNum;
     }
 
     public Page<ArticleData> getPage() {

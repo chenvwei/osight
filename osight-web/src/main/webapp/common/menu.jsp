@@ -11,7 +11,7 @@
 							<tbody>
 								<tr>
 									<td style="white-space: nowrap;"><a href="/">首页</a></td>
-									<td style="white-space: nowrap;"><a href="/article/list.action">博客</a></td>
+									<td style="white-space: nowrap;"><a href="/article/">博客</a></td>
 									<td style="white-space: nowrap;"><a href="/album/upload.jsp">相册</a></td>
 								</tr>
 							</tbody>
