@@ -2,7 +2,10 @@ package com.osight.core.service.impl;
 
 import java.util.List;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+
 import com.osight.core.dao.ArticleDAO;
+import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
@@ -23,8 +26,30 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
     }
 
     @Override
+    public ArticleData newArticle(ArticleData article) {
+        return articleDao.saveOrUpate(article);
+    }
+
+    @Override
+    public ArticleData updateArticle(ArticleData article) {
+        ArticleData data = getArticleById(article.getId());
+        if (data != null) {
+            data.setTitle(article.getTitle());
+            data.setCategory(new ArticleCategoryData(article.getCategory().getId()));
+            data.setContent(article.getContent());
+            articleDao.saveOrUpate(data);
+        }
+        return null;
+    }
+
+    @Override
     public ArticleData getArticleById(long id) {
         return articleDao.getArticleById(id);
+    }
+
+    @Override
+    public List<ArticleCategoryData> getCategorys() {
+        return articleDao.getCategorys();
     }
 
     @Override
@@ -72,6 +97,13 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
         if (art != null) {
             articleDao.delete(art);
         }
+    }
+
+    @Override
+    public ArticleCategoryData newCategory(String name) {
+        ArticleCategoryData data = new ArticleCategoryData(name);
+        log.info(ToStringBuilder.reflectionToString(data));
+        return articleDao.saveOrUpdate(data);
     }
 
 }

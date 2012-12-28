@@ -11,5 +11,6 @@
 		<mapping class="com.osight.core.pojos.AlbumData" />
 		<mapping class="com.osight.core.pojos.AlbumPhotoData" />
 		<mapping class="com.osight.core.pojos.ArticleData"/>
+		<mapping class="com.osight.core.pojos.ArticleCategoryData"/>
 	</session-factory>
 </hibernate-configuration>

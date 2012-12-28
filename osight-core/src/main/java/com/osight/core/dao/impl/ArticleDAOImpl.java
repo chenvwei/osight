@@ -3,6 +3,7 @@ package com.osight.core.dao.impl;
 import java.util.List;
 
 import com.osight.core.dao.ArticleDAO;
+import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.framework.page.Page;
@@ -18,6 +19,10 @@ public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
             hibernateUtil.update(data);
         }
         return data;
+    }
+     @Override
+    public List<ArticleCategoryData> getCategorys() {
+        return hibernateUtil.find("select p from ArticleCategoryData p");
     }
 
     @Override
@@ -42,6 +47,15 @@ public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
         long ct = hibernateUtil.getCount("select p from ArticleData p", null, null);
         Page<ArticleData> page = PageUtil.getPage(list.iterator(), start, count, ct);
         return page;
+    }
+    @Override
+    public ArticleCategoryData saveOrUpdate(ArticleCategoryData data) {
+        if(data.getId()==0){
+            hibernateUtil.save(data);
+        }else{
+            hibernateUtil.update(data);
+        }
+        return data;
     }
 
 }

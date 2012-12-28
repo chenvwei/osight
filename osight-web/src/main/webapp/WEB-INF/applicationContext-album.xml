@@ -22,5 +22,8 @@
 		singleton="false">
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<bean id="articleCategoryAction" class="com.osight.web.article.action.CategoryAction" singleton="false">
+		<property name="articleService" ref="articleService"></property>
+	</bean>
 
 </beans>

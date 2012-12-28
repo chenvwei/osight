@@ -136,6 +136,10 @@
 			<groupId>com.aliyun.openservices</groupId>
 			<artifactId>aliyun-openservices</artifactId>
 		</dependency>
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

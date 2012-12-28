@@ -1,7 +1,10 @@
 package com.osight.web.article.action;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 
+import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
@@ -21,6 +24,7 @@ public class ArticleAction extends BasicSupportAction {
     private long id;
     private int pageNum;
     private Page<ArticleData> page;
+    private List<ArticleCategoryData> categorys;
 
     public String view() {
         article = articleService.getArticleById(id);
@@ -29,6 +33,7 @@ public class ArticleAction extends BasicSupportAction {
     }
 
     public String edit() {
+        categorys = articleService.getCategorys();
         article = articleService.getArticleById(id);
         return "edit";
     }
@@ -47,15 +52,17 @@ public class ArticleAction extends BasicSupportAction {
     }
 
     public String add() {
+        categorys = articleService.getCategorys();
         return "add";
     }
 
     public String save() {
         if (article.getId() == 0) {
             UserData user = WebAppUtil.getLoginUser(ServletActionContext.getRequest());
-            article = articleService.newArticle(user, article.getTitle(), article.getContent());
+            article.setUser(user);
+            article = articleService.newArticle(article);
         } else {
-            article = articleService.updateArticle(article.getId(), article.getTitle(), article.getContent());
+            article = articleService.updateArticle(article);
         }
         return "view";
     }
@@ -90,6 +97,10 @@ public class ArticleAction extends BasicSupportAction {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public List<ArticleCategoryData> getCategorys() {
+        return categorys;
     }
 
 }

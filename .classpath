@@ -52,5 +52,6 @@
 	<classpathentry kind="var" path="M2_REPO/org/jdom/jdom/1.1/jdom-1.1.jar"/>
 	<classpathentry kind="var" path="M2_REPO/junit/junit/4.8.2/junit-4.8.2.jar"/>
 	<classpathentry kind="var" path="M2_REPO/org/hsqldb/hsqldb/2.2.9/hsqldb-2.2.9.jar"/>
+	<classpathentry kind="var" path="M2_REPO/net/sf/json-lib/json-lib/2.4/json-lib-2.4.jar" sourcepath="/M2_REPO/net/sf/json-lib/json-lib/2.4/json-lib-2.4-sources.jar"/>
 	<classpathentry kind="output" path="target"/>
 </classpath>

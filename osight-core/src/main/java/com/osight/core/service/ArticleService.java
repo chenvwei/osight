@@ -2,12 +2,17 @@ package com.osight.core.service;
 
 import java.util.List;
 
+import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.framework.page.Page;
 
 public interface ArticleService {
-    ArticleData newArticle(UserData user, String title, String content);
+    ArticleData newArticle(UserData user,String title, String content);
+    
+    ArticleData newArticle(ArticleData article);
+    
+    ArticleData updateArticle(ArticleData article);
 
     ArticleData updateArticle(long id, String title, String content);
 
@@ -20,4 +25,8 @@ public interface ArticleService {
     void deleteArticleById(long id);
 
     void increasePV(long id);
+    
+    List<ArticleCategoryData> getCategorys();
+    
+    ArticleCategoryData newCategory(String name);
 }

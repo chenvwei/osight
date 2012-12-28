@@ -23,6 +23,7 @@
 							escapeHtml="true" /></span> <span class="comments"><s:property
 							value="pv" /></span> <span class="comments"><s:property
 							value="pv" /></span>
+							<span><s:property value="category.name" escapeHtml="true"/> </span>
 							<span class="comments">
 					<s:a href="/article/edit/%{id}">修改</s:a>
 					<s:a href="/article/delete/%{id}" onclick="return confirm('确认要删除吗？')">删除</s:a></span>

@@ -37,6 +37,10 @@ public class ArticleData extends AuditableObject {
 
 	@Column(name = "content", nullable = false)
 	private String				content;
+	
+	@OneToOne
+    @JoinColumn(name = "category_id")
+	private ArticleCategoryData category;
 
 	@Column(name = "pv")
 	@NoHistory
@@ -83,5 +87,14 @@ public class ArticleData extends AuditableObject {
 	public void setPv(long pv) {
 		this.pv = pv;
 	}
+
+    public ArticleCategoryData getCategory() {
+        return category;
+    }
+
+    public void setCategory(ArticleCategoryData category) {
+        this.category = category;
+    }
+	
 
 }

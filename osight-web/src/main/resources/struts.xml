@@ -51,6 +51,8 @@
 		<action name="add" class="articleAction" method="add">
 			<result type="tiles" name="add">article.add</result>
 		</action>
+		<action name="newCategory" class="articleCategoryAction" method="newCategory">
+		</action>
 	</package>
 	<package name="user" namespace="/user" extends="tiles-default">
 		<action name="login" class="loginAction">
