@@ -2,8 +2,6 @@ package com.osight.core.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
@@ -104,13 +102,18 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 	@Override
 	public ArticleCategoryData newCategory(String name) {
 		ArticleCategoryData data = new ArticleCategoryData(name);
-		log.info(ToStringBuilder.reflectionToString(data));
 		return articleDao.saveOrUpdate(data);
 	}
 
 	@Override
 	public ArticleCategoryData getArticleCategoryById(long id) {
 		return articleDao.getArticleCategoryById(id);
+	}
+
+	@Override
+	public boolean categoryExists(String name) {
+		ArticleCategoryData c = articleDao.getArticleCategoryByName(name);
+		return c == null ? false : true;
 	}
 
 }

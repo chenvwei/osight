@@ -22,4 +22,6 @@ public interface ArticleDAO {
     ArticleCategoryData saveOrUpdate(ArticleCategoryData data);
     
     ArticleCategoryData getArticleCategoryById(long id);
+    
+    ArticleCategoryData getArticleCategoryByName(String name);
 }

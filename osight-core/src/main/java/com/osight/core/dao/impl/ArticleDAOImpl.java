@@ -2,6 +2,9 @@ package com.osight.core.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.type.StringType;
+import org.hibernate.type.Type;
+
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleData;
@@ -63,6 +66,13 @@ public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
 	@Override
 	public ArticleCategoryData getArticleCategoryById(long id) {
 		return (ArticleCategoryData) hibernateUtil.getObject(id, ArticleCategoryData.class);
+	}
+
+	@Override
+	public ArticleCategoryData getArticleCategoryByName(String name) {
+		List<ArticleCategoryData> list = hibernateUtil.find("select p from ArticleCategoryData p where p.name=?",
+				new Object[] { name }, new Type[] { StringType.INSTANCE });
+		return list.isEmpty() ? null : list.get(0);
 	}
 
 }

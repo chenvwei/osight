@@ -31,9 +31,14 @@ public class CategoryAction extends BasicSupportAction {
 	private Page<ArticleData>	page;
 
 	public String newCategory() {
-		ArticleCategoryData ct = articleService.newCategory(name);
+		boolean exists = articleService.categoryExists(name);
 		JSONObject json = new JSONObject();
-		json.element("id", ct.getId()).element("name", ct.getName());
+		if (exists) {
+			json.element("id", "0").element("name", "该类别已存在");
+		} else {
+			ArticleCategoryData ct = articleService.newCategory(name);
+			json.element("id", ct.getId()).element("name", ct.getName());
+		}
 		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter pw;

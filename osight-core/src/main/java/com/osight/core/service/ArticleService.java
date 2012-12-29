@@ -31,4 +31,6 @@ public interface ArticleService {
     ArticleCategoryData newCategory(String name);
     
     ArticleCategoryData getArticleCategoryById(long id);
+    
+    boolean categoryExists(String name);
 }
