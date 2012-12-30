@@ -54,7 +54,7 @@ public class CategoryAction extends BasicSupportAction {
 	}
 
 	public String listArticle() {
-		ArticleCategoryData category = articleService.getArticleCategoryById(id);
+		ArticleCategoryData category = articleService.getCategoryById(id);
 		if (category != null && category.getArticles() != null) {
 			page = PageUtil.getPage(category.getArticles().iterator(), 0, category.getArticles().size(), category
 					.getArticles().size());

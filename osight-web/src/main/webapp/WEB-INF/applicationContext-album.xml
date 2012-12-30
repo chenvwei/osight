@@ -25,5 +25,7 @@
 	<bean id="articleCategoryAction" class="com.osight.web.article.action.CategoryAction" singleton="false">
 		<property name="articleService" ref="articleService"></property>
 	</bean>
-
+	<bean id="articleCommentAction" class="com.osight.web.article.action.CommentAction" singleton="false">
+		<property name="articleService" ref="articleService"></property>
+	</bean>
 </beans>

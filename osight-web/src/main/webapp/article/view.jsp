@@ -24,4 +24,7 @@
 		</div>
 		<div class="under"></div>
 	</div>
+	<s:action name="listComment" namespace="/article" flush="true" executeResult="true">
+		<s:param name="articleId" value="%{article.id}"/>
+	</s:action>
 </s:else>

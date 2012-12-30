@@ -2,11 +2,13 @@ package com.osight.core.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.type.LongType;
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
 
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
+import com.osight.core.pojos.ArticleCommentData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.framework.page.Page;
@@ -64,15 +66,34 @@ public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
 	}
 
 	@Override
-	public ArticleCategoryData getArticleCategoryById(long id) {
+	public ArticleCategoryData getCategoryById(long id) {
 		return (ArticleCategoryData) hibernateUtil.getObject(id, ArticleCategoryData.class);
 	}
 
 	@Override
-	public ArticleCategoryData getArticleCategoryByName(String name) {
+	public ArticleCategoryData getCategoryByName(String name) {
 		List<ArticleCategoryData> list = hibernateUtil.find("select p from ArticleCategoryData p where p.name=?",
 				new Object[] { name }, new Type[] { StringType.INSTANCE });
 		return list.isEmpty() ? null : list.get(0);
 	}
 
+	@Override
+	public ArticleCommentData saveOrUpdate(ArticleCommentData data) {
+		if (data.getId() == 0) {
+			hibernateUtil.save(data);
+		} else {
+			hibernateUtil.update(data);
+		}
+		return data;
+	}
+
+	@Override
+	public Page<ArticleCommentData> getCommentsByArticleId(long articleId, int start, int count) {
+		List<ArticleCommentData> list = hibernateUtil.find("select p from ArticleCommentData p where p.articleId=?",
+				new Object[] { articleId }, new Type[] { LongType.INSTANCE }, start, count);
+		long ct = hibernateUtil.getCount("select p from ArticleCommentData p where p.articleId=?",
+				new Object[] { articleId }, new Type[] { LongType.INSTANCE });
+		Page<ArticleCommentData> page = PageUtil.getPage(list.iterator(), start, count, ct);
+		return page;
+	}
 }

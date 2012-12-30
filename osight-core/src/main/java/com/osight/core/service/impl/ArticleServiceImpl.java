@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
+import com.osight.core.pojos.ArticleCommentData;
 import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
@@ -106,14 +107,23 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 	}
 
 	@Override
-	public ArticleCategoryData getArticleCategoryById(long id) {
-		return articleDao.getArticleCategoryById(id);
+	public ArticleCategoryData getCategoryById(long id) {
+		return articleDao.getCategoryById(id);
 	}
 
 	@Override
 	public boolean categoryExists(String name) {
-		ArticleCategoryData c = articleDao.getArticleCategoryByName(name);
+		ArticleCategoryData c = articleDao.getCategoryByName(name);
 		return c == null ? false : true;
 	}
 
+	@Override
+	public ArticleCommentData newComment(ArticleCommentData data) {
+		return articleDao.saveOrUpdate(data);
+	}
+
+	@Override
+	public Page<ArticleCommentData> getCommentsByArticleId(long articleId, int start, int count) {
+		return articleDao.getCommentsByArticleId(articleId, start, count);
+	}
 }
