@@ -83,6 +83,7 @@ create table article(
        user_id bigint not null,
        title text not null,
        content text not null,
+       category_id int not null default 1,
        pv bigint not null default 0,
        CREATEDBY     VARCHAR(32), 
        UPDATEDBY     VARCHAR(32),
@@ -143,6 +144,23 @@ create table article_label(
        FOREIGN KEY (article_id) REFERENCES article (id),
        FOREIGN KEY (label_id) REFERENCES label (id)
 );
+
+create table article_category(
+       id bigint not null AUTO_INCREMENT,
+       name text not null,
+       CREATEDBY     VARCHAR(32), 
+       UPDATEDBY     VARCHAR(32),
+       CREATEDON     timestamp,
+       UPDATEDON     timestamp,
+       CREATEDIP     VARCHAR(30),
+       UPDATEDIP     VARCHAR(30),
+       CREATEDSERVER VARCHAR(50),
+       UPDATEDSERVER VARCHAR(50),
+       PRIMARY KEY (id)     
+);
+select * from article_category;
+update article_category set updatedon=createdon 
+insert into article_category(id,name) values(0,'无类别')
 create table user(
        id bigint not null AUTO_INCREMENT,
        user_name varchar(32),
@@ -178,7 +196,8 @@ create table history_info (
         VERINFO varchar(32),
         primary key (ID)
     )
-    
+select * from article
+alter table article add(category_id int default 1)    
 select * from history_info;
 select * from user;
 update user set email='aaa@aaa.aa' where id=1;
