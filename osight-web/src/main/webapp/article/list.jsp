@@ -18,15 +18,14 @@
 					</s:a>
 				</h2>
 				<div class="info">
-					<span><s:date name="createdOn" format="yyyy年MM月dd日" /></span> <span
-						class="author"><s:property value="user.nickName"
-							escapeHtml="true" /></span> <span class="comments"><s:property
-							value="pv" /></span> <span class="comments"><s:property
-							value="pv" /></span>
-							<span><s:property value="category.name" escapeHtml="true"/> </span>
-							<span class="comments">
+					发表于 <s:date name="createdOn" format="yyyy年MM月dd日 HH:mm" /> | 
+					作者  <s:property value="user.nickName" escapeHtml="true" /> | 
+					评论 (<s:property value="pv" />) | 
+					阅读 (<s:property value="pv" />) | 
+					类别 (<s:a href="/article/category/%{category.id}"> <s:property value="category.name" escapeHtml="true"/></s:a>) | 
+					
 					<s:a href="/article/edit/%{id}">修改</s:a>
-					<s:a href="/article/delete/%{id}" onclick="return confirm('确认要删除吗？')">删除</s:a></span>
+					<s:a href="/article/delete/%{id}" onclick="return confirm('确认要删除吗？')">删除</s:a>
 				</div>
 				<div class="content">
 					<s:property value="content" escapeHtml="false"></s:property>

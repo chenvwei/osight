@@ -13,42 +13,69 @@ import net.sf.json.JSONObject;
 import org.apache.struts2.ServletActionContext;
 
 import com.osight.core.pojos.ArticleCategoryData;
+import com.osight.core.pojos.ArticleData;
 import com.osight.core.service.ArticleService;
+import com.osight.framework.page.Page;
+import com.osight.framework.page.PageUtil;
 import com.osight.framework.struts2.BasicSupportAction;
 
 /**
- * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
+ * @author chenw
  * @version $Id$
  */
 public class CategoryAction extends BasicSupportAction {
-    private static final long serialVersionUID = 1L;
-    private ArticleService articleService;
-    private String name;
+	private static final long	serialVersionUID	= 1L;
+	private ArticleService		articleService;
+	private int					id;
+	private String				name;
+	private Page<ArticleData>	page;
 
-    public String newCategory() {
-        ArticleCategoryData ct = articleService.newCategory(name);
-        JSONObject json = new JSONObject();
-        json.element("id", ct.getId()).element("name", ct.getName());
-        HttpServletResponse response = ServletActionContext.getResponse();
-        response.setCharacterEncoding("UTF-8");
-        PrintWriter pw;
-        try {
-            pw = response.getWriter();
-            pw.write(json.toString());
-            pw.flush();
-            pw.close();
-        } catch (IOException e) {
-            log.error(e.getMessage(), e);
-        }
-        return null;
-    }
+	public String newCategory() {
+		boolean exists = articleService.categoryExists(name);
+		JSONObject json = new JSONObject();
+		if (exists) {
+			json.element("id", "0").element("name", "该类别已存在");
+		} else {
+			ArticleCategoryData ct = articleService.newCategory(name);
+			json.element("id", ct.getId()).element("name", ct.getName());
+		}
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setCharacterEncoding("UTF-8");
+		PrintWriter pw;
+		try {
+			pw = response.getWriter();
+			pw.write(json.toString());
+			pw.flush();
+			pw.close();
+		} catch (IOException e) {
+			log.error(e.getMessage(), e);
+		}
+		return null;
+	}
 
-    public void setArticleService(ArticleService articleService) {
-        this.articleService = articleService;
-    }
+	public String listArticle() {
+		ArticleCategoryData category = articleService.getCategoryById(id);
+		if (category != null && category.getArticles() != null) {
+			page = PageUtil.getPage(category.getArticles().iterator(), 0, category.getArticles().size(), category
+					.getArticles().size());
+		}
+		return "list";
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
-    
+	public void setArticleService(ArticleService articleService) {
+		this.articleService = articleService;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Page<ArticleData> getPage() {
+		return page;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

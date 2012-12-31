@@ -98,7 +98,8 @@ create table article(
 );
 create table article_comment(
        id bigint not null AUTO_INCREMENT,
-       user_id bigint not null,     
+       user_name tinytext,
+       email varchar(100),     
        article_id bigint not null,
        title text not null,
        content text not null,
@@ -111,7 +112,6 @@ create table article_comment(
        CREATEDSERVER VARCHAR(50),
        UPDATEDSERVER VARCHAR(50),
        FOREIGN KEY (article_id) REFERENCES article (id),
-       FOREIGN KEY (user_id) REFERENCES user (id),
        PRIMARY KEY (id)
        
 )

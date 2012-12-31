@@ -53,6 +53,18 @@
 		</action>
 		<action name="newCategory" class="articleCategoryAction" method="newCategory">
 		</action>
+		<action name="listArticle" class="articleCategoryAction" method="listArticle">
+			<param name="needLogin">false</param>
+			<result type="tiles" name="list">article.list</result>
+		</action>
+		<action name="listComment" class="articleCommentAction" method="list">
+			<param name="needLogin">false</param>
+			<result name="list">/article/comment_list.jsp</result>
+		</action>
+		<action name="newComment" class="articleCommentAction" method="add">
+			<param name="needLogin">false</param>
+			<result type="redirect" name="view">/article/${comment.articleId}.html</result>
+		</action>
 	</package>
 	<package name="user" namespace="/user" extends="tiles-default">
 		<action name="login" class="loginAction">

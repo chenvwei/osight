@@ -2,6 +2,7 @@ package com.osight.web.article.action;
 
 import java.util.List;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.apache.struts2.ServletActionContext;
 
 import com.osight.core.pojos.ArticleCategoryData;
@@ -63,6 +64,7 @@ public class ArticleAction extends BasicSupportAction {
             article = articleService.newArticle(article);
         } else {
             article = articleService.updateArticle(article);
+            log.info(ToStringBuilder.reflectionToString(article));
         }
         return "view";
     }
