@@ -6,13 +6,13 @@ package com.osight.history;
 import java.io.Serializable;
 import java.util.Calendar;
 
-import com.osight.framework.pojos.PersistentObject;
+import com.osight.framework.pojos.AbstractModel;
 
 /**
  * @author chenw
  * @version $Id$
  */
-public class ObjectHistory<T extends PersistentObject> implements Serializable, Comparable<ObjectHistory<T>> {
+public class ObjectHistory<T extends AbstractModel> implements Serializable, Comparable<ObjectHistory<T>> {
 
     private static final long serialVersionUID = 1L;
 

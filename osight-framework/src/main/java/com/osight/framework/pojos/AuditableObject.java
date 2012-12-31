@@ -13,7 +13,7 @@ import javax.persistence.MappedSuperclass;
  * @version $Id$
  */
 @MappedSuperclass
-public abstract class AuditableObject extends PersistentObject implements Auditable {
+public abstract class AuditableObject extends AbstractModel implements Auditable {
     private static final long serialVersionUID = 1L;
     private String createdBy;
     private String updatedBy;

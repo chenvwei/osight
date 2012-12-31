@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.osight.framework.exception.DAOException;
-import com.osight.framework.pojos.PersistentObject;
+import com.osight.framework.pojos.AbstractModel;
 
 /**
  * @author chenw
@@ -48,14 +48,14 @@ public class HibernateUtil {
 		return HibernateSession.getSession(getSessionFactory(), false);
 	}
 
-	public void save(PersistentObject obj) {
+	public void save(AbstractModel obj) {
 		try {
 			if (obj.getId() == 0) {
 				getSession().save(obj);
 			} else {
 				if (!getSession().contains(obj)) {
 					try {
-						PersistentObject vo = (PersistentObject) getSession().load(obj.getClass(), obj.getId());
+						AbstractModel vo = (AbstractModel) getSession().load(obj.getClass(), obj.getId());
 						vo.setData(obj);
 						obj = vo;
 					} catch (ObjectNotFoundException e) {
@@ -68,10 +68,10 @@ public class HibernateUtil {
 		}
 	}
 
-	public void update(PersistentObject obj) {
+	public void update(AbstractModel obj) {
 		try {
 			if (!getSession().contains(obj)) {
-				PersistentObject vo = (PersistentObject) getSession().load(obj.getClass(), obj.getId());
+				AbstractModel vo = (AbstractModel) getSession().load(obj.getClass(), obj.getId());
 				vo.setData(obj);
 				obj = vo;
 			}
@@ -88,7 +88,7 @@ public class HibernateUtil {
 		}
 	}
 
-	public void saveOrUpdate(PersistentObject obj) {
+	public void saveOrUpdate(AbstractModel obj) {
 		try {
 			if (obj.getId() == 0) {
 				getSession().save(obj);
@@ -100,7 +100,7 @@ public class HibernateUtil {
 						// passed in
 						// is not a persistent instance, so must be loaded into
 						// session.
-						PersistentObject vo = (PersistentObject) getSession().get(obj.getClass(), obj.getId());
+						AbstractModel vo = (AbstractModel) getSession().get(obj.getClass(), obj.getId());
 						if (null != vo) {
 							update = true;
 							vo.setData(obj);
@@ -307,8 +307,8 @@ public class HibernateUtil {
 		try {
 			if (!getSession().contains(obj)) {
 				try {
-					PersistentObject vo = (PersistentObject) getSession().get(obj.getClass(),
-							((PersistentObject) obj).getId());
+					AbstractModel vo = (AbstractModel) getSession().get(obj.getClass(),
+							((AbstractModel) obj).getId());
 					if (null != vo) {
 						getSession().delete(vo);
 					}

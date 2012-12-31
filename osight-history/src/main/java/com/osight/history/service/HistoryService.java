@@ -5,7 +5,7 @@ package com.osight.history.service;
 
 import java.util.List;
 
-import com.osight.framework.pojos.PersistentObject;
+import com.osight.framework.pojos.AbstractModel;
 import com.osight.history.ObjectHistory;
 import com.osight.history.vo.HistoryDetail;
 import com.osight.history.vo.HistoryInfo;
@@ -28,8 +28,8 @@ public interface HistoryService {
      *            对象的当前版本, 只有中途加入对象日志的才需要传入此参数
      * @return 集合中的对象为c的实例
      */
-    List<ObjectHistory<PersistentObject>> getVersionObjects(Class<? extends PersistentObject> c, long primaryKey,
-            PersistentObject currentObj);
+    List<ObjectHistory<AbstractModel>> getVersionObjects(Class<? extends AbstractModel> c, long primaryKey,
+            AbstractModel currentObj);
 
     /**
      * 返回对象某条记录所对应的所有历史版本
@@ -40,9 +40,9 @@ public interface HistoryService {
      *            主键
      * @return 集合中的对象为c的实例
      */
-    List<ObjectHistory<PersistentObject>> getVersionObjects(Class<? extends PersistentObject> c, long primaryKey);
+    List<ObjectHistory<AbstractModel>> getVersionObjects(Class<? extends AbstractModel> c, long primaryKey);
 
-    HistoryDetail getHistoryDetail(Class<? extends PersistentObject> c, long primaryKey, String versionId);
+    HistoryDetail getHistoryDetail(Class<? extends AbstractModel> c, long primaryKey, String versionId);
 
-    List<HistoryDetail> getHistoryDetails(Class<? extends PersistentObject> c, long primaryKey);
+    List<HistoryDetail> getHistoryDetails(Class<? extends AbstractModel> c, long primaryKey);
 }

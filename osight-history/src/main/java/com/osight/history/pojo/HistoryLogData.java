@@ -14,7 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.osight.framework.pojos.PersistentObject;
+import com.osight.framework.pojos.AbstractModel;
 import com.osight.history.vo.HistoryInfo;
 
 /**
@@ -23,7 +23,7 @@ import com.osight.history.vo.HistoryInfo;
  */
 @Entity
 @Table(name = "history_info")
-public class HistoryLogData extends PersistentObject {
+public class HistoryLogData extends AbstractModel {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", unique = true, nullable = false)

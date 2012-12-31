@@ -19,23 +19,23 @@ import org.slf4j.LoggerFactory;
  * @author chenw <a href="mailto:rodneytt@sina.com">chen wei</a>
  * @version $Id$
  */
-public abstract class PersistentObject implements Serializable {
+public abstract class PersistentObject1 implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    protected static transient Logger log = LoggerFactory.getLogger(PersistentObject.class);
+    protected static transient Logger log = LoggerFactory.getLogger(PersistentObject1.class);
 
-    public PersistentObject() {
+    public PersistentObject1() {
     }
 
     public abstract long getId();
 
     public abstract void setId(long id);
 
-    public void setData(PersistentObject vo) {
+    public void setData(PersistentObject1 vo) {
         this.copyProperties(vo);
     }
 
-    public void copyProperties(PersistentObject origin) {
+    public void copyProperties(PersistentObject1 origin) {
         try {
             ConvertUtils.register(new DoubleConverter(null), Double.class);
             ConvertUtils.register(new IntegerConverter(null), Integer.class);

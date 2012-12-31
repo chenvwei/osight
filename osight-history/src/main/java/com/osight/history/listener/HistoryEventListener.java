@@ -23,8 +23,8 @@ import org.slf4j.LoggerFactory;
 
 import com.osight.framework.hibernate.ThreadLocalManager;
 import com.osight.framework.invoke.InvokeInfoHelper;
+import com.osight.framework.pojos.AbstractModel;
 import com.osight.framework.pojos.AuditableObject;
-import com.osight.framework.pojos.PersistentObject;
 import com.osight.framework.service.IService;
 import com.osight.framework.transaction.TransactionIdHelper;
 import com.osight.framework.util.UUIDUtil;
@@ -53,7 +53,7 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
             boolean versionable = isHistoryEntity(event.getEntity(), true);
 
             if (versionable) {
-                PersistentObject entity = (PersistentObject) event.getEntity();
+                AbstractModel entity = (AbstractModel) event.getEntity();
                 String[] names = event.getPersister().getPropertyNames();
                 Object[] state = event.getState();
                 Map<String, Object> map = makeMap(names, state);
@@ -74,7 +74,7 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
             boolean versionable = isHistoryEntity(event.getEntity(), false);
 
             if (versionable) {
-                PersistentObject entity = (PersistentObject) event.getEntity();
+                AbstractModel entity = (AbstractModel) event.getEntity();
                 String[] names = event.getPersister().getPropertyNames();
                 Object[] oldState = event.getOldState();
                 Object[] newState = event.getState();
@@ -96,7 +96,7 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
             boolean versionable = isHistoryEntity(event.getEntity(), false);
 
             if (versionable) {
-                PersistentObject entity = (PersistentObject) event.getEntity();
+                AbstractModel entity = (AbstractModel) event.getEntity();
                 String[] names = event.getPersister().getPropertyNames();
                 Object[] state = event.getDeletedState();
                 Map<String, Object> map = makeMap(names, state);
@@ -191,22 +191,22 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
                     oldValueEqualNewValue = true;
                 } else if (((null == newValueO) && (null != oldValueO)) || ((null != oldValueO) && (null == oldValueO))) {
                     oldValueEqualNewValue = false;
-                    if (oldValueO instanceof PersistentObject) {
-                        oldValueO = ((PersistentObject) oldValueO).getId();
+                    if (oldValueO instanceof AbstractModel) {
+                        oldValueO = ((AbstractModel) oldValueO).getId();
                     }
-                    if (newValueO instanceof PersistentObject) {
-                        newValueO = ((PersistentObject) newValueO).getId();
+                    if (newValueO instanceof AbstractModel) {
+                        newValueO = ((AbstractModel) newValueO).getId();
                     }
                 } else {
                     if (oldValueO instanceof Calendar) {
                         ((Calendar) oldValueO).setLenient(true);
                         ((Calendar) newValueO).setLenient(true);
                     }
-                    if (oldValueO instanceof PersistentObject) {
-                        oldValueO = ((PersistentObject) oldValueO).getId();
+                    if (oldValueO instanceof AbstractModel) {
+                        oldValueO = ((AbstractModel) oldValueO).getId();
                     }
-                    if (newValueO instanceof PersistentObject) {
-                        newValueO = ((PersistentObject) newValueO).getId();
+                    if (newValueO instanceof AbstractModel) {
+                        newValueO = ((AbstractModel) newValueO).getId();
                     }
                     oldValueEqualNewValue = newValueO.equals(oldValueO);
                 }
@@ -237,8 +237,8 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
                     continue;
 
                 Object newValueO = newEntry.getValue();
-                if (newValueO instanceof PersistentObject) {
-                    newValueO = ((PersistentObject) newValueO).getId();
+                if (newValueO instanceof AbstractModel) {
+                    newValueO = ((AbstractModel) newValueO).getId();
                 }
                 ver = new HistoryInfo();
                 ver.setTransactionId(transactionId);
@@ -265,8 +265,8 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
                     continue;
 
                 Object oldValueO = oldEntry.getValue();
-                if (oldValueO instanceof PersistentObject) {
-                    oldValueO = ((PersistentObject) oldValueO).getId();
+                if (oldValueO instanceof AbstractModel) {
+                    oldValueO = ((AbstractModel) oldValueO).getId();
                 }
 
                 ver = new HistoryInfo();

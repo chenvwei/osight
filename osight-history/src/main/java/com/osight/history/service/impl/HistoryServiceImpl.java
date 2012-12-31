@@ -11,7 +11,7 @@ import java.util.List;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 
-import com.osight.framework.pojos.PersistentObject;
+import com.osight.framework.pojos.AbstractModel;
 import com.osight.framework.service.BaseDbService;
 import com.osight.history.ObjectHistory;
 import com.osight.history.dao.HistoryDAO;
@@ -40,18 +40,18 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
     }
 
     @Override
-    public List<ObjectHistory<PersistentObject>> getVersionObjects(Class<? extends PersistentObject> c, long primaryKey,
-            PersistentObject currentObj) {
+    public List<ObjectHistory<AbstractModel>> getVersionObjects(Class<? extends AbstractModel> c, long primaryKey,
+            AbstractModel currentObj) {
         List<HistoryDetail> verDetails = getHistoryDetails(c, primaryKey);
 
-        List<ObjectHistory<PersistentObject>> versions = new ArrayList<ObjectHistory<PersistentObject>>();
+        List<ObjectHistory<AbstractModel>> versions = new ArrayList<ObjectHistory<AbstractModel>>();
 
         if (verDetails.size() == 0) {
             return versions;
         }
 
         boolean first = true;
-        PersistentObject prev = null;
+        AbstractModel prev = null;
         try {
             prev = c.newInstance();
         } catch (InstantiationException e) {
@@ -85,7 +85,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
                     first = false;
                 }
 
-                ObjectHistory<PersistentObject> objVer = new ObjectHistory<PersistentObject>();
+                ObjectHistory<AbstractModel> objVer = new ObjectHistory<AbstractModel>();
                 objVer.setTransactionId(value.getTransactionId());
                 objVer.setLogBy(value.getLogBy());
                 objVer.setLogTime(value.getLogTime());
@@ -97,7 +97,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
                 versions.add(objVer);
             }
         } else {
-            PersistentObject curr = null;
+            AbstractModel curr = null;
             if (isDeleted) {
                 setOldProp(prev, verDetails.get(verDetails.size() - 1));
                 prev.setId(primaryKey);
@@ -113,7 +113,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
                 HistoryDetail value = verDetails.get(i);
 
                 if (first) {
-                    ObjectHistory<PersistentObject> objVer = new ObjectHistory<PersistentObject>();
+                    ObjectHistory<AbstractModel> objVer = new ObjectHistory<AbstractModel>();
                     objVer.setTransactionId(value.getTransactionId());
                     objVer.setLogBy(value.getLogBy());
                     objVer.setLogTime(value.getLogTime());
@@ -124,7 +124,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
                     first = false;
                 }
 
-                ObjectHistory<PersistentObject> objVer = new ObjectHistory<PersistentObject>();
+                ObjectHistory<AbstractModel> objVer = new ObjectHistory<AbstractModel>();
                 objVer.setTransactionId(value.getTransactionId());
                 objVer.setLogBy(value.getLogBy());
                 objVer.setLogTime(value.getLogTime());
@@ -144,12 +144,12 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
     }
 
     @Override
-    public List<ObjectHistory<PersistentObject>> getVersionObjects(Class<? extends PersistentObject> c, long primaryKey) {
+    public List<ObjectHistory<AbstractModel>> getVersionObjects(Class<? extends AbstractModel> c, long primaryKey) {
         return getVersionObjects(c, primaryKey, null);
     }
 
     @Override
-    public HistoryDetail getHistoryDetail(Class<? extends PersistentObject> c, long primaryKey, String versionId) {
+    public HistoryDetail getHistoryDetail(Class<? extends AbstractModel> c, long primaryKey, String versionId) {
         String className = c.getName();
         List<HistoryLogData> l = historyDAO.getVersionLogs(className, primaryKey, versionId);
         
@@ -176,7 +176,7 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
     }
 
     @Override
-    public List<HistoryDetail> getHistoryDetails(Class<? extends PersistentObject> c, long primaryKey) {
+    public List<HistoryDetail> getHistoryDetails(Class<? extends AbstractModel> c, long primaryKey) {
         String className = c.getName();
         List<HistoryLogData> l = historyDAO.getVersionLogs(className, primaryKey);
         
@@ -221,10 +221,10 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
     protected void doRemove() {
     }
 
-    private PersistentObject clone(PersistentObject o) {
-        PersistentObject clone = null;
+    private AbstractModel clone(AbstractModel o) {
+        AbstractModel clone = null;
         try {
-            clone = (PersistentObject) BeanUtils.cloneBean(o);
+            clone = (AbstractModel) BeanUtils.cloneBean(o);
         } catch (IllegalAccessException e) {
             throw new IllegalArgumentException("clone error! id=" + o.getId(), e);
         } catch (InstantiationException e) {
