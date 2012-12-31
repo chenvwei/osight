@@ -3,8 +3,6 @@
  */
 package com.osight.test.service;
 
-import org.apache.commons.lang.builder.ToStringBuilder;
-import org.apache.commons.lang.builder.ToStringStyle;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -34,11 +32,13 @@ public class TestServiceTest {
 
     @Test
     public void test() {
-        TestPojoData pojo = testService.newPojo("chenwei", "男", "rodneytt@sina.com");
-        log.info(ToStringBuilder.reflectionToString(pojo, ToStringStyle.SHORT_PREFIX_STYLE));
-        
-        TestPojoData p = testService.gePojoById(pojo.getId());
-        log.info(ToStringBuilder.reflectionToString(p, ToStringStyle.MULTI_LINE_STYLE));
-        
+        TestPojoData model = new TestPojoData();
+        model.setName("陈伟");
+        model.setSex("男");
+        model.setEmail("rodneytt@sina.com");
+        testService.save(model);
+        log.info(model.toString());
+        TestPojoData t1 = testService.get(model.getId());
+        log.info(t1.toString());
     }
 }

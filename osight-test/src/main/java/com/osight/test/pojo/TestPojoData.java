@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.osight.framework.pojos.AuditableObject;
+import com.osight.framework.pojos.AbstractModel;
 
 /**
  * @author chenw
@@ -18,7 +18,7 @@ import com.osight.framework.pojos.AuditableObject;
  */
 @Entity
 @Table(name = "testpojo")
-public class TestPojoData extends AuditableObject {
+public class TestPojoData extends AbstractModel {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", unique = true, nullable = false)

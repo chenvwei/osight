@@ -3,14 +3,12 @@
  */
 package com.osight.test.service;
 
+import com.osight.framework.service.IBaseService;
 import com.osight.test.pojo.TestPojoData;
 
 /**
  * @author chenw
  * @version $Id$
  */
-public interface TestService {
-    TestPojoData newPojo(String name, String sex, String email);
-
-    TestPojoData gePojoById(long id);
+public interface TestService extends IBaseService<TestPojoData, Long> {
 }
