@@ -30,14 +30,14 @@ public class HistoryServiceTest {
     public void testNew() {
         TestPojoService testService = TestServiceFactory.getService();
         TestPojo data = testService.newPojo("rodneytt", "123455", 1, "rodneytt@sina.com");
-        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+        log.info("1:"+ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
         data = testService.updateEmail(data.getId(), "chenvvwei@163.com");
-        log.info(ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
+        log.info("2:"+ToStringBuilder.reflectionToString(data, ToStringStyle.SIMPLE_STYLE));
         HistoryService history = HistoryServiceFactory.getHistoryService();
         List<HistoryDetail> list = history.getHistoryDetails(TestPojo.class, data.getId());
         Assert.assertEquals(list.size(), 1);
         for (HistoryDetail obj : list) {
-            log.info(ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
+            log.info("3:"+ToStringBuilder.reflectionToString(obj, ToStringStyle.SHORT_PREFIX_STYLE));
         }
     }
 

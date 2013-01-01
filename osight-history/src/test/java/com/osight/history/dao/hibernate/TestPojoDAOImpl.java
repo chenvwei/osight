@@ -3,6 +3,8 @@
  */
 package com.osight.history.dao.hibernate;
 
+import org.springframework.stereotype.Repository;
+
 import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.history.dao.TestPojoDAO;
 import com.osight.history.pojo.TestPojo;
@@ -11,6 +13,7 @@ import com.osight.history.pojo.TestPojo;
  * @author chenw
  * @version $Id$
  */
+@Repository("testPojoDAO")
 public class TestPojoDAOImpl extends BaseHibernateDAO implements TestPojoDAO {
 
     @Override
@@ -31,7 +34,6 @@ public class TestPojoDAOImpl extends BaseHibernateDAO implements TestPojoDAO {
     public void delete(long id) {
         TestPojo data = getTestPojoById(id);
         hibernateUtil.delete(data);
-//        hibernateUtil.delete("delete TestPojo p where p.id=?", new Object[] {id}, new Type[] {LongType.INSTANCE});
     }
 
 }

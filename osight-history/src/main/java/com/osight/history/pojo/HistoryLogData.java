@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.osight.framework.pojos.AbstractModel;
 import com.osight.history.vo.HistoryInfo;
 
@@ -23,6 +25,7 @@ import com.osight.history.vo.HistoryInfo;
  */
 @Entity
 @Table(name = "history_info")
+@Component
 public class HistoryLogData extends AbstractModel {
     private static final long serialVersionUID = 1L;
     @Id

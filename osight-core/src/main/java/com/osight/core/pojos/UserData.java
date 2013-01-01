@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Component;
 
 import com.osight.core.Constants;
 import com.osight.framework.pojos.AuditableObject;
@@ -26,6 +27,7 @@ import com.osight.history.annotation.HistoryProp;
 @Entity
 @Table(name = "user")
 @HistoryProp
+@Component
 public class UserData extends AuditableObject {
 
     /**

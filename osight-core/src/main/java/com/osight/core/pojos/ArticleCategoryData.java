@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.osight.framework.pojos.AuditableObject;
 
 /**
@@ -22,6 +24,7 @@ import com.osight.framework.pojos.AuditableObject;
  */
 @Entity
 @Table(name = "article_category")
+@Component
 public class ArticleCategoryData extends AuditableObject {
 	private static final long	serialVersionUID	= 1L;
 

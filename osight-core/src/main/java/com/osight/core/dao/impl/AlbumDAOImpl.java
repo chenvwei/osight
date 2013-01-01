@@ -5,6 +5,8 @@ package com.osight.core.dao.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.osight.core.dao.AlbumDAO;
 import com.osight.core.pojos.AlbumData;
 import com.osight.core.pojos.AlbumPhotoData;
@@ -14,6 +16,7 @@ import com.osight.framework.hibernate.BaseHibernateDAO;
  * @author chenw <a href="mailto:chenw@chsi.com.cn">chen wei</a>
  * @version $Id$
  */
+@Repository("albumDao")
 public class AlbumDAOImpl extends BaseHibernateDAO implements AlbumDAO {
 
     @Override

@@ -11,6 +11,6 @@ import com.osight.framework.service.spring.SpringBeanLocator;
  */
 public class HistoryServiceFactory {
     public static HistoryService getHistoryService() {
-        return SpringBeanLocator.getInstance("serviceImpl-history.xml").getBean("historyService");
+        return SpringBeanLocator.getInstance("spring-config-history.xml").getBean("historyService");
     }
 }

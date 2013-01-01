@@ -11,7 +11,7 @@ import com.osight.framework.service.spring.SpringBeanLocator;
  */
 public class TestServiceFactory {
     public static TestPojoService getService() {
-        Object bean = SpringBeanLocator.getInstance("serviceImpl-test.xml").getBean("testService");
+        Object bean = SpringBeanLocator.getInstance("spring-config-history-test.xml").getBean("testPojoService");
         return (TestPojoService) bean;
     }
 }

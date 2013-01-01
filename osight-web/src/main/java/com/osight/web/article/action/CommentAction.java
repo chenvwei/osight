@@ -23,9 +23,7 @@ public class CommentAction extends BasicSupportAction {
 	}
 
 	public String list() {
-		log.info("articleId:{}",articleId);
 		page = articleService.getCommentsByArticleId(articleId, start, PAGE_SIZE);
-		log.info(ToStringBuilder.reflectionToString(page));
 		return "list";
 	}
 

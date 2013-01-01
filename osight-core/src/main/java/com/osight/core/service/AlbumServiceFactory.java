@@ -3,6 +3,7 @@
  */
 package com.osight.core.service;
 
+import com.osight.core.Constants;
 import com.osight.framework.service.spring.SpringBeanLocator;
 
 /**
@@ -10,8 +11,8 @@ import com.osight.framework.service.spring.SpringBeanLocator;
  * @version $Id$
  */
 public class AlbumServiceFactory {
-    public static AlbumService getAlbumService() {
-        Object bean = SpringBeanLocator.getInstance("serviceImpl.xml").getBean("albumService");
-        return (AlbumService) bean;
-    }
+	public static AlbumService getAlbumService() {
+		Object bean = SpringBeanLocator.getInstance(Constants.SPRING_CONFIG_FILE).getBean("albumService");
+		return (AlbumService) bean;
+	}
 }

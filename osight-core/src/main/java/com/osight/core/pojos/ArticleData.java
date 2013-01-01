@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.osight.framework.pojos.AuditableObject;
 import com.osight.history.annotation.HistoryProp;
 import com.osight.history.annotation.NoHistory;
@@ -16,6 +18,7 @@ import com.osight.history.annotation.NoHistory;
 @Entity
 @Table(name = "article")
 @HistoryProp
+@Component
 public class ArticleData extends AuditableObject {
 
 	/**
@@ -37,10 +40,10 @@ public class ArticleData extends AuditableObject {
 
 	@Column(name = "content", nullable = false)
 	private String				content;
-	
+
 	@OneToOne
-    @JoinColumn(name = "category_id")
-	private ArticleCategoryData category;
+	@JoinColumn(name = "category_id")
+	private ArticleCategoryData	category;
 
 	@Column(name = "pv")
 	@NoHistory
@@ -88,13 +91,12 @@ public class ArticleData extends AuditableObject {
 		this.pv = pv;
 	}
 
-    public ArticleCategoryData getCategory() {
-        return category;
-    }
+	public ArticleCategoryData getCategory() {
+		return category;
+	}
 
-    public void setCategory(ArticleCategoryData category) {
-        this.category = category;
-    }
-	
+	public void setCategory(ArticleCategoryData category) {
+		this.category = category;
+	}
 
 }

@@ -5,18 +5,26 @@ package com.osight.core.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.osight.core.dao.AlbumDAO;
 import com.osight.core.pojos.AlbumData;
 import com.osight.core.pojos.AlbumPhotoData;
 import com.osight.core.service.AlbumService;
 import com.osight.core.type.AlbumAccessType;
-import com.osight.framework.service.BaseDbService;
 
 /**
  * @author chenw
  * @version $Id$
  */
-public class AlbumServiceImpl extends BaseDbService implements AlbumService {
+@Service("albumService")
+@Transactional
+public class AlbumServiceImpl implements AlbumService {
+	@Autowired
+	@Qualifier("albumDao")
     private AlbumDAO albumDAO;
 
     @Override
@@ -26,15 +34,6 @@ public class AlbumServiceImpl extends BaseDbService implements AlbumService {
         data.setDescription(description);
         data.setType(AlbumAccessType.PASSWORD);
         return albumDAO.saveOrUpdate(data);
-    }
-
-    @Override
-    protected void doCreate() {
-        albumDAO = (AlbumDAO) getDAO("albumDAO", AlbumDAO.class);
-    }
-
-    @Override
-    protected void doRemove() {
     }
 
     @Override

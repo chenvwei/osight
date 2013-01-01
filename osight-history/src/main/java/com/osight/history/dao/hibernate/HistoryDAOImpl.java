@@ -8,6 +8,7 @@ import java.util.List;
 import org.hibernate.type.LongType;
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
+import org.springframework.stereotype.Repository;
 
 import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.history.dao.HistoryDAO;
@@ -17,6 +18,7 @@ import com.osight.history.pojo.HistoryLogData;
  * @author chenw
  * @version $Id$
  */
+@Repository("historyDao")
 public class HistoryDAOImpl extends BaseHibernateDAO implements HistoryDAO {
 
     private static final String SEL_VERSIONLOG = "select p from HistoryLogData p ";

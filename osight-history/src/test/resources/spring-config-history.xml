@@ -26,7 +26,7 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>com.osight</value>
+				<value>com.osight.history.pojo</value>
 			</list>
 		</property>
 		<property name="entityInterceptor">
@@ -36,7 +36,7 @@
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
 				<prop key="hibernate.cache.provider_class">org.hibernate.cache.OSCacheProvider</prop>
-				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.format_sql">false</prop>
 				<prop key="hibernate.use_outer_join">false</prop>
@@ -44,18 +44,17 @@
 		</property>
 	</bean>
 
-	<!-- 扫描注解Bean 
-	<context:component-scan base-package="com.osight" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" />
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Component" />
-	</context:component-scan>
-	-->
-	
+	<!-- 扫描注解Bean <context:component-scan base-package="com.osight" use-default-filters="false"> 
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" 
+		/> <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" 
+		/> <context:include-filter type="annotation" expression="org.springframework.stereotype.Component" 
+		/> </context:component-scan> -->
+
 	<context:component-scan base-package="com.osight">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
-	<!-- 开启注解事务 只对当前配置文件有效 -->
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
 	<tx:annotation-driven transaction-manager="txManager" />
 
 	<bean id="txManager"
@@ -63,29 +62,4 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	<tx:advice id="txAdvice" transaction-manager="txManager">
-		<tx:attributes>
-			<tx:method name="save*" propagation="REQUIRED" />
-			<tx:method name="add*" propagation="REQUIRED" />
-			<tx:method name="create*" propagation="REQUIRED" />
-			<tx:method name="insert*" propagation="REQUIRED" />
-			<tx:method name="update*" propagation="REQUIRED" />
-			<tx:method name="merge*" propagation="REQUIRED" />
-			<tx:method name="del*" propagation="REQUIRED" />
-			<tx:method name="remove*" propagation="REQUIRED" />
-			<tx:method name="put*" propagation="REQUIRED" />
-			<tx:method name="use*" propagation="REQUIRED" />
-			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
-			<tx:method name="count*" propagation="REQUIRED" read-only="true" />
-			<tx:method name="find*" propagation="REQUIRED" read-only="true" />
-			<tx:method name="list*" propagation="REQUIRED" read-only="true" />
-			<tx:method name="*" read-only="true" />
-		</tx:attributes>
-	</tx:advice>
-	<aop:config expose-proxy="true">
-		<!-- 只对业务逻辑层实施事务 -->
-		<aop:pointcut id="txPointcut"
-			expression="execution(* com.osight.test.service.*.*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
-	</aop:config>
 </beans>

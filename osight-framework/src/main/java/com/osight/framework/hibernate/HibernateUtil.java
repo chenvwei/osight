@@ -45,7 +45,7 @@ public class HibernateUtil {
 	}
 
 	public Session getSession() {
-		return HibernateSession.getSession(getSessionFactory(), false);
+		return getSessionFactory().getCurrentSession();
 	}
 
 	public void save(AbstractModel obj) {
@@ -307,8 +307,7 @@ public class HibernateUtil {
 		try {
 			if (!getSession().contains(obj)) {
 				try {
-					AbstractModel vo = (AbstractModel) getSession().get(obj.getClass(),
-							((AbstractModel) obj).getId());
+					AbstractModel vo = (AbstractModel) getSession().get(obj.getClass(), ((AbstractModel) obj).getId());
 					if (null != vo) {
 						getSession().delete(vo);
 					}

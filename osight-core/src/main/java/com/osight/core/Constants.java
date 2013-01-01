@@ -8,6 +8,7 @@ package com.osight.core;
  * @version $Id$
  */
 public class Constants {
-    public static final String MD5_SALT = "Osight1111&$|[11@04]";
-    public static final String SESSION_USER = "s_user";
+	public static final String	MD5_SALT			= "Osight1111&$|[11@04]";
+	public static final String	SESSION_USER		= "s_user";
+	public static final String	SPRING_CONFIG_FILE	= "spring-config-core.xml";
 }

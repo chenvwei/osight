@@ -2,6 +2,11 @@ package com.osight.core.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
 import com.osight.core.pojos.ArticleCommentData;
@@ -9,9 +14,13 @@ import com.osight.core.pojos.ArticleData;
 import com.osight.core.pojos.UserData;
 import com.osight.core.service.ArticleService;
 import com.osight.framework.page.Page;
-import com.osight.framework.service.BaseDbService;
 
-public class ArticleServiceImpl extends BaseDbService implements ArticleService {
+@Service("articleService")
+@Transactional
+public class ArticleServiceImpl implements ArticleService {
+
+	@Autowired
+	@Qualifier("articleDao")
 	private ArticleDAO	articleDao;
 
 	@Override
@@ -34,9 +43,7 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 		ArticleData data = getArticleById(article.getId());
 		if (data != null) {
 			data.setTitle(article.getTitle());
-			if (article.getCategory() != null && article.getCategory().getId() != 0) {
-				data.setCategory(new ArticleCategoryData(article.getCategory().getId()));
-			}
+			data.setCategory(article.getCategory());
 			data.setContent(article.getContent());
 			return articleDao.saveOrUpate(data);
 		}
@@ -51,15 +58,6 @@ public class ArticleServiceImpl extends BaseDbService implements ArticleService 
 	@Override
 	public List<ArticleCategoryData> getCategorys() {
 		return articleDao.getCategorys();
-	}
-
-	@Override
-	protected void doCreate() {
-		articleDao = (ArticleDAO) getDAO("articleDAO", ArticleDAO.class);
-	}
-
-	@Override
-	protected void doRemove() {
 	}
 
 	@Override

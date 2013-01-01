@@ -10,9 +10,14 @@ import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.osight.framework.pojos.AbstractModel;
-import com.osight.framework.service.BaseDbService;
 import com.osight.history.ObjectHistory;
 import com.osight.history.dao.HistoryDAO;
 import com.osight.history.pojo.HistoryLogData;
@@ -24,7 +29,12 @@ import com.osight.history.vo.HistoryInfo;
  * @author chenw
  * @version $Id$
  */
-public class HistoryServiceImpl extends BaseDbService implements HistoryService {
+@Service("historyService")
+@Transactional
+public class HistoryServiceImpl implements HistoryService {
+	private Logger log = LoggerFactory.getLogger(getClass());
+	@Autowired
+	@Qualifier("historyDao")
     private HistoryDAO historyDAO;
 
     @Override
@@ -210,15 +220,6 @@ public class HistoryServiceImpl extends BaseDbService implements HistoryService 
         Collections.sort(verDetails);
         
         return verDetails;
-    }
-
-    @Override
-    protected void doCreate() {
-        historyDAO = (HistoryDAO) getDAO("historyDAO", HistoryDAO.class);
-    }
-
-    @Override
-    protected void doRemove() {
     }
 
     private AbstractModel clone(AbstractModel o) {

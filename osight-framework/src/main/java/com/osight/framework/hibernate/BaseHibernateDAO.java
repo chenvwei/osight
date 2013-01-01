@@ -6,6 +6,8 @@ package com.osight.framework.hibernate;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 /**
  * @author chenw 
@@ -41,6 +43,8 @@ public class BaseHibernateDAO {
     /**
      * @param factory
      */
+    @Autowired
+    @Qualifier("sessionFactory")
     public void setSessionFactory(SessionFactory factory) {
         sessionFactory = factory;
         hibernateUtil = new HibernateUtil();

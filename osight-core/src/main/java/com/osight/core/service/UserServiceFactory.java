@@ -3,15 +3,16 @@
  */
 package com.osight.core.service;
 
+import com.osight.core.Constants;
 import com.osight.framework.service.spring.SpringBeanLocator;
 
 /**
- * @author chenw 
+ * @author chenw
  * @version $Id$
  */
 public class UserServiceFactory {
-    public static UserService getUserService() {
-        Object bean = SpringBeanLocator.getInstance("serviceImpl.xml").getBean("userService");
-        return (UserService) bean;
-    }
+	public static UserService getUserService() {
+		Object bean = SpringBeanLocator.getInstance(Constants.SPRING_CONFIG_FILE).getBean("userService");
+		return (UserService) bean;
+	}
 }

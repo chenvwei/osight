@@ -25,7 +25,6 @@ import com.osight.framework.hibernate.ThreadLocalManager;
 import com.osight.framework.invoke.InvokeInfoHelper;
 import com.osight.framework.pojos.AbstractModel;
 import com.osight.framework.pojos.AuditableObject;
-import com.osight.framework.service.IService;
 import com.osight.framework.transaction.TransactionIdHelper;
 import com.osight.framework.util.UUIDUtil;
 import com.osight.history.annotation.HistoryProp;
@@ -354,22 +353,6 @@ public class HistoryEventListener implements PostInsertEventListener, PostUpdate
     }
 
     void save(HistoryInfo verInfo) {
-        if (null == historyService) {
-            // 这段代码之所以不放在setHistoryServiceName中，是因为要避免BeanLocator的内部循环创建问题
-            // 主要是单元测试时使用
-            Class<?> c;
-            try {
-                c = Class.forName(historyServiceClassName);
-                historyService = (HistoryService) c.newInstance();
-                ((IService) historyService).create();
-            } catch (ClassNotFoundException e) {
-                log.error("设置historyService出错", e);
-            } catch (InstantiationException e) {
-                log.error("设置historyService出错", e);
-            } catch (IllegalAccessException e) {
-                log.error("设置historyService出错", e);
-            }
-        }
         historyService.save(verInfo);
     }
 

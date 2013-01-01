@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.osight.framework.pojos.AbstractModel;
 
 /**
@@ -18,6 +20,7 @@ import com.osight.framework.pojos.AbstractModel;
  */
 @Entity
 @Table(name = "lottery_number")
+@Component
 public class LotteryNumberData extends AbstractModel {
     private static final long serialVersionUID = 1L;
     @Id

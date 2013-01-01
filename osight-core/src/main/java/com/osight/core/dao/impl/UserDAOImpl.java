@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
+import org.springframework.stereotype.Repository;
 
 import com.osight.core.dao.UserDAO;
 import com.osight.core.pojos.UserData;
@@ -16,6 +17,7 @@ import com.osight.framework.hibernate.BaseHibernateDAO;
  * @author chenw
  * @version $Id$
  */
+@Repository("userDao")
 public class UserDAOImpl extends BaseHibernateDAO implements UserDAO {
 
 	@Override

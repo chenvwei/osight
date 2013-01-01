@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hibernate.type.LongType;
 import org.hibernate.type.Type;
+import org.springframework.stereotype.Repository;
 
 import com.osight.core.dao.LotteryDAO;
 import com.osight.core.pojos.LotteryData;
@@ -17,6 +18,7 @@ import com.osight.framework.hibernate.BaseHibernateDAO;
  * @author chenw
  * @version $Id$
  */
+@Repository("lotteryDao")
 public class LotteryDAOImpl extends BaseHibernateDAO implements LotteryDAO {
 
     @Override

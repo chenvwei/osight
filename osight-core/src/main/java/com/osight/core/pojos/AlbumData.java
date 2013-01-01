@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 import com.osight.core.type.AlbumAccessType;
 import com.osight.framework.pojos.AuditableObject;
 
@@ -19,6 +21,7 @@ import com.osight.framework.pojos.AuditableObject;
  */
 @Entity
 @Table(name = "album")
+@Component
 public class AlbumData extends AuditableObject {
     private static final long serialVersionUID = 1L;
     @Id
