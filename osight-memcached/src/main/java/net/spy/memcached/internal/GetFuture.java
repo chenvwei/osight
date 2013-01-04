@@ -48,6 +48,7 @@ public class GetFuture<T> implements Future<T> {
     this.rv = new OperationFuture<Future<T>>(key, l, opTimeout);
   }
 
+  @SuppressWarnings("deprecation")
   public boolean cancel(boolean ign) {
     return rv.cancel(ign);
   }

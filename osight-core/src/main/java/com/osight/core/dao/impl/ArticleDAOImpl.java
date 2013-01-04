@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.type.LongType;
 import org.hibernate.type.StringType;
 import org.hibernate.type.Type;
-import org.springframework.stereotype.Repository;
 
 import com.osight.core.dao.ArticleDAO;
 import com.osight.core.pojos.ArticleCategoryData;
@@ -15,7 +14,6 @@ import com.osight.framework.hibernate.BaseHibernateDAO;
 import com.osight.framework.page.Page;
 import com.osight.framework.page.PageUtil;
 
-@Repository("articleDao")
 public class ArticleDAOImpl extends BaseHibernateDAO implements ArticleDAO {
 
 	@Override

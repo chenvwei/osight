@@ -10,7 +10,6 @@
 	<classpathentry kind="src" path="osight-history/src/test/resources"/>
 	<classpathentry kind="src" path="osight-test/src/main/java"/>
 	<classpathentry kind="src" path="osight-test/src/test/java"/>
-	<classpathentry kind="src" path="osight-test/src/test/resources"/>
 	<classpathentry kind="src" path="osight-memcached/src/main/java"/>
 	<classpathentry kind="src" path="osight-memcached/src/test/java"/>
 	<classpathentry kind="src" path="osight-memcached/src/test/resources"/>

@@ -187,7 +187,6 @@ public abstract class BaseSerializingTranscoder extends SpyObject {
         }
       } catch (IOException e) {
         getLogger().warn("Failed to decompress data", e);
-        bos = null;
       } finally {
         CloseUtil.close(gis);
         CloseUtil.close(bis);

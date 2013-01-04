@@ -9,6 +9,8 @@ import java.io.InputStream;
 import java.io.FileNotFoundException;
 
 public final class BuildInfo extends Properties {
+
+  private static final long serialVersionUID = 1L;
   public static final String VERSION="2.8.4";
   public static final String GIT_HASH="b1a7ece3f8b6ea3982599cf4eb89c297c1001a99";
   public static final String TREE_VERSION="2.8.4";
