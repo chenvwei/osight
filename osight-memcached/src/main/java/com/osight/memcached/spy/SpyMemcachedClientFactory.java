@@ -66,6 +66,7 @@ public class SpyMemcachedClientFactory {
 			}else{
 				cfg.setServers(DefaultProp.SERVERS.split(";"));
 			}
+			return cfg;
 		}
 		return null;
 	}
