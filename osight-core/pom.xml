@@ -20,6 +20,10 @@
 			<artifactId>osight-history</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.osight</groupId>
+			<artifactId>osight-memcached</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<optional>true</optional>
