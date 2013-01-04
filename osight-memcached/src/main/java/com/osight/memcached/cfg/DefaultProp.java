@@ -10,7 +10,7 @@ public class DefaultProp {
 
 	public static String POOL_NAME = "";
 	public static String APP_NAME = "";
-	public static String CFGSERVICE_CLASS = null;
+	public static String SERVERS="";
 
 	private static final String CONFIG_FILE = "memcachedclient.properties";
 
@@ -20,10 +20,7 @@ public class DefaultProp {
 			prop.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(CONFIG_FILE));
 			POOL_NAME = prop.getProperty("POOL_NAME");
 			APP_NAME = prop.getProperty("APP_NAME");
-			if (null == CFGSERVICE_CLASS) {
-				CFGSERVICE_CLASS = prop.getProperty("CFGSERVICE_CLASS");
-				Class.forName(CFGSERVICE_CLASS);
-			}
+			SERVERS = prop.getProperty("SERVERS");
 		} catch (Exception e) {
 			log.error("读取memcached配置文件错误:" + e.getMessage());
 		}
