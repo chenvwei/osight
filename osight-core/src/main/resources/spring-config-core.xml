@@ -59,6 +59,7 @@
     
 	<!-- history end  -->
 
+	<bean id="cacheClient" class="com.osight.memcached.spy.SpyMemcachedClientFactory" factory-method="getSpyMemcachedClient"></bean>
 	<!-- 扫描注解Bean 
 	<context:component-scan base-package="com.osight" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Service" />
