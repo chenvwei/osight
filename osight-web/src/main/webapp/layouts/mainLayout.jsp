@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta property="wb:webmaster" content="e4fb9c42ef408546" />
 <link href="/favicon.ico" type="image/x-icon" rel=icon> 
 <link rel="stylesheet" href="/css/default.css">
 <link type="text/css" rel="stylesheet" href="/css/default.css">
