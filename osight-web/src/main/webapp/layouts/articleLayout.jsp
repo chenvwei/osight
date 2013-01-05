@@ -12,17 +12,17 @@
 <link type="text/css" rel="stylesheet" href="/css/default.css">
 <link type="text/css" rel="stylesheet" href="/css/article.css">
 <link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
+<link rel="stylesheet" type="text/css" href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
 <!--[if IE]>
   <link rel="stylesheet" type="text/css" href="/css/jquery.ui.ie.css"/>
 <![endif]-->
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript" src="/js/jquery-ui.js"></script>
 <script type="text/javascript" src="/ueditor/editor_config.js"></script>
-<script type="text/javascript" charset="utf-8"
-	src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css" />
+<script type="text/javascript" src="/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
 <script type="text/javascript" src="/ueditor/editor_all.js"></script>
+<script type="text/javascript" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=29edc921-b221-4de4-886a-75383b7ae344&amp;pophcol=2&amp;lang=zh"></script>
+<script type="text/javascript" src="http://static.bshare.cn/b/bshareC0.js"></script>
 <script type="text/javascript">
 	$(function() {
 		SyntaxHighlighter.highlight();

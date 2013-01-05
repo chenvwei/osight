@@ -22,7 +22,18 @@
 		<div class="content">
 			<s:property value="article.content" escapeHtml="false"></s:property>
 		</div>
-		<div class="under"></div>
+		<div class="under">
+			<div class="bshare-custom icon-medium">
+			<div class="bsPromo bsPromo2"></div>
+			<a title="分享到" href="http://www.bShare.cn/" id="bshare-shareto" class="bshare-more">分享到</a>
+			<a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
+			<a title="分享到腾讯微博" class="bshare-qqmb" href="javascript:void(0);"></a>
+			<a title="分享到人人网" class="bshare-renren"></a>
+			<a title="分享到QQ空间" class="bshare-qzone" href="javascript:void(0);"></a>
+			<a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+			<span class="BSHARE_COUNT bshare-share-count" style="float: none;">12.2K</span>
+			</div>
+		</div>
 	</div>
 	<s:action name="listComment" namespace="/article" flush="true" executeResult="true">
 		<s:param name="articleId" value="%{article.id}"/>
