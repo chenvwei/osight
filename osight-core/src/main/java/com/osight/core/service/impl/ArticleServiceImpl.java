@@ -30,6 +30,7 @@ public class ArticleServiceImpl implements ArticleService {
 		article.setTitle(title);
 		article.setContent(content);
 		article.setPv(0);
+		article.setSecret(true);
 		return articleDao.saveOrUpate(article);
 	}
 
@@ -86,8 +87,8 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public Page<ArticleData> getArticles(int start, int count) {
-		return articleDao.getArticles(start, count);
+	public Page<ArticleData> getArticles(int start, int count,boolean visible) {
+		return articleDao.getArticles(start, count,visible);
 	}
 
 	@Override

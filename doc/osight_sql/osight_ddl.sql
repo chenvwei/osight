@@ -197,7 +197,9 @@ create table history_info (
         primary key (ID)
     )
 select * from article
+update article set secret = 1 where id=14
 alter table article add(category_id int default 1)    
+alter table article add(secret boolean DEFAULT false)
 select * from history_info;
 select * from user;
 update user set email='aaa@aaa.aa' where id=1;

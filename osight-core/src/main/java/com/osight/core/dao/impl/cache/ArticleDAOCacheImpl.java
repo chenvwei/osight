@@ -29,11 +29,11 @@ public class ArticleDAOCacheImpl extends ArticleDAOImpl {
     private CacheClient cacheClient;
 
     @Override
-    public Page<ArticleData> getArticles(int start, int count) {
-        String key = String.format("article_page_%s_%s", start, count);
+    public Page<ArticleData> getArticles(int start, int count, boolean visible) {
+        String key = String.format("article_page_%s_%s_visible_%s", start, count, visible);
         Page<ArticleData> page = cacheClient.getGroupCache(key, cacheArticleGroup);
         if (page == null) {
-            page = super.getArticles(start, count);
+            page = super.getArticles(start, count, visible);
             if (page != null) {
                 cacheClient.setCacheWithTime(key, page);
             }

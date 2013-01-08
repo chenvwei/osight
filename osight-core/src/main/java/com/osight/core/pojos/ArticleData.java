@@ -48,6 +48,9 @@ public class ArticleData extends AuditableObject {
 	@Column(name = "pv")
 	@NoHistory
 	private long				pv;
+	
+	@Column(name="secret")
+	private boolean secret;
 
 	@Override
 	public long getId() {
@@ -98,5 +101,14 @@ public class ArticleData extends AuditableObject {
 	public void setCategory(ArticleCategoryData category) {
 		this.category = category;
 	}
+
+    public boolean isSecret() {
+        return secret;
+    }
+
+    public void setSecret(boolean secret) {
+        this.secret = secret;
+    }
+	
 
 }

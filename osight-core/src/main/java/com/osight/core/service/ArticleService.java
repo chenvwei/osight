@@ -21,7 +21,7 @@ public interface ArticleService {
 
 	List<ArticleData> getAllArticles();
 
-	Page<ArticleData> getArticles(int start, int count);
+	Page<ArticleData> getArticles(int start, int count,boolean secretVisable);
 
 	void deleteArticleById(long id);
 
