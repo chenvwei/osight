@@ -47,7 +47,7 @@ public class ArticleAction extends BasicSupportAction {
         if (pageNum < 1) {
             pageNum = 1;
         }
-        page = articleService.getArticles((pageNum - 1) * pageCount, pageCount,false);
+        page = articleService.getArticles((pageNum - 1) * pageCount, pageCount);
         return "list";
     }
 

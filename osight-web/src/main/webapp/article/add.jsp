@@ -46,7 +46,13 @@
 				value="新增" class="button" id="newCategory"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><s:textarea name="article.content" id="content"></s:textarea></td>
+			<td>是否隐藏:</td>
+			<td>
+				<s:radio list="#{false:'不隐藏',true:'隐藏' }" name="article.secret"></s:radio>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><s:textarea name="article.content" id="content"> </s:textarea></td>
 		</tr>
 		<tr>
 			<td><s:submit value="保存" cssClass="button ui-button-success"></s:submit></td>

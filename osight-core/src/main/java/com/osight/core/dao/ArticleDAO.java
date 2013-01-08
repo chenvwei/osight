@@ -16,7 +16,7 @@ public interface ArticleDAO {
 
 	void delete(ArticleData data);
 
-	Page<ArticleData> getArticles(int start, int count,boolean visible);
+	Page<ArticleData> getArticles(int start, int count);
 
 	List<ArticleCategoryData> getCategorys();
 

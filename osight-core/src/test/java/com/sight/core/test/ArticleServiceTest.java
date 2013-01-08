@@ -55,11 +55,11 @@ public class ArticleServiceTest {
         long t5 = System.currentTimeMillis();
 
         log.info(a.getTitle().toString());
-        Page<ArticleData> p1 = service.getArticles(0, 10,true);
+        Page<ArticleData> p1 = service.getArticles(0, 10);
         log.info(p1.getList().get(0).getTitle().toString());
         data.setTitle("aaa");
         service.updateArticle(data);
-        Page<ArticleData> p2 = service.getArticles(0, 10,true);
+        Page<ArticleData> p2 = service.getArticles(0, 10);
         log.info(p2.getList().get(0).getTitle().toString());
     }
 

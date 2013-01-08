@@ -7,7 +7,7 @@
 <link type="text/css" rel="stylesheet" href="/css/jquery-ui.css" />
 </head>
 <body>
-<div style="text-align:center;width: 400px">
+<div style="text-align:center;width: 800px">
 	<div class="ui-widget">
 		<div class="ui-state-error ui-corner-all">
 			<p>

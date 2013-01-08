@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
 <div>
 	<s:a href="/article/new"  cssClass="button ui-button-success">撰写新日志</s:a>
 </div>
@@ -11,6 +10,7 @@
 <s:else>
 	<div>
 		<s:iterator value="page.list">
+			<s:if test="!secret || #session.s_user!=null">
 			<div class="item">
 				<h2>
 					<s:a href="/article/%{id}.html">
@@ -32,6 +32,7 @@
 				</div>
 				<div class="under"></div>
 			</div>
+			</s:if>
 		</s:iterator>
 		<jsp:include page="page.jsp"></jsp:include>
 	</div>
